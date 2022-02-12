@@ -1,0 +1,269 @@
+<nav
+  style="width: 257px"
+  role="navigation"
+  id="ember8"
+  class="ynab-u sidebar logged-in ember-view"
+>
+  <div class="sidebar-left">
+    <div id="ember9" class="sidebar-contents ember-view">
+      <div id="ember10" class="sidebar-nav ember-view">
+        <button
+          id="ember11"
+          class="sidebar-nav-menu sidebar-nav-menu-budget js-sidebar-nav-menu user-data button ember-view"
+        >
+          <svg
+            height="24"
+            width="24"
+            id="ember12"
+            class="ynab-new-icon ember-view sidebar-nav-ynab"
+          >
+            <use href="#icon_sprite_ynab"></use>
+
+            <title>{{ budget_name }}</title>
+          </svg>
+          <div class="sidebar-nav-budget-email">
+            <span class="sidebar-nav-budget-email-budget"
+              >{{ budget_name }}</span
+            >
+            <span class="sidebar-nav-budget-email-email button-truncate"
+              >{{ email_address }}</span
+            >
+          </div>
+          <i
+            id="ember13"
+            class="sidebar-nav-arrow flaticon stroke ember-view down"
+          ></i>
+        </button>
+        <ul class="nav-main">
+          <li class="navlink sidebar-nav-menu-collapsed">
+            <button id="ember14" class="js-sidebar-nav-menu button ember-view">
+              <svg
+                height="24"
+                width="24"
+                id="ember15"
+                class="ynab-new-icon ember-view"
+              >
+                <use href="#icon_sprite_ynab"></use>
+
+                <title>{{ budget_name }}</title>
+              </svg>
+            </button>
+          </li>
+          <li class="navlink navlink-budget active">
+            <a href="/budget" id="ember16" class="ember-view">
+              <svg
+                height="24"
+                width="24"
+                id="ember17"
+                class="ynab-new-icon ember-view"
+              >
+                <use href="#icon_sprite_navigation_budget"></use>
+              </svg>
+              <div class="navlink-label">Budget</div>
+            </a>
+          </li>
+          <li class="navlink navlink-reports">
+            <a href="/reports/spending/totals" id="ember18" class="ember-view">
+              <svg
+                height="24"
+                width="24"
+                id="ember19"
+                class="ynab-new-icon ember-view"
+              >
+                <use href="#icon_sprite_navigation_reports"></use>
+              </svg>
+              <div class="navlink-label">Reports</div>
+            </a>
+          </li>
+          <li class="navlink navlink-accounts">
+            <a href="/accounts" id="ember20" class="ember-view">
+              <svg
+                height="24"
+                width="24"
+                id="ember21"
+                class="ynab-new-icon ember-view"
+              >
+                <use href="#icon_sprite_navigation_accounts"></use>
+              </svg>
+              <div class="navlink-label">All Accounts</div>
+            </a>
+          </li>
+          <!---->
+        </ul>
+
+        <div id="ember22" class="ember-view">
+          <!---->
+          <div class="nav-accounts">
+            <!---->
+            <div id="ember23" class="nav-account onBudget ember-view">
+              <div
+                class="nav-account-block"
+                data-ember-action=""
+                data-ember-action-24="24"
+              >
+                <button
+                  class="nav-account-name nav-account-name-button user-data"
+                  aria-label="open BUDGET"
+                >
+                  <svg
+                    height="8"
+                    width="8"
+                    viewBox="0 0 8 4.5"
+                    id="ember25"
+                    class="svg-icon chevronRight ember-view"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M 4.33216 4.36137C 4.28854 4.40532 4.23673 4.44018 4.1797 4.46397C 4.12268 4.48776 4.06155 4.5 3.99982 4.5C 3.93809 4.5 3.87697 4.48776 3.81994 4.46397C 3.76292 4.44018 3.71111 4.40532 3.66749 4.36137L 0.142204 0.812368C 0.0975889 0.768671 0.0620448 0.716491 0.0376352 0.658858C 0.0132256 0.601226 0.000436821 0.539288 1.10203e-05 0.476642C -0.000414781 0.413995 0.0115309 0.351888 0.0351548 0.293925C 0.0587788 0.235961 0.0936101 0.183298 0.137627 0.13899C 0.181644 0.0946828 0.233969 0.0596147 0.291565 0.0358215C 0.349161 0.0120284 0.410881 -1.61275e-05 0.473141 0.000387963C 0.535401 0.000792054 0.596961 0.0136365 0.654247 0.0381753C 0.711533 0.0627141 0.763405 0.0984584 0.80685 0.143333L 3.9998 3.35772L 7.19275 0.143333C 7.23618 0.0983781 7.28805 0.0625574 7.34536 0.037953C 7.40267 0.0133486 7.46427 0.000451258 7.52657 1.14514e-05C 7.58887 -0.000428355 7.65064 0.011598 7.70829 0.0353909C 7.76593 0.0591839 7.8183 0.0942691 7.86235 0.138607C 7.9064 0.182945 7.94126 0.235651 7.96488 0.293661C 7.98851 0.351672 8.00044 0.413829 7.99999 0.476521C 7.99953 0.539213 7.98669 0.601188 7.96222 0.658843C 7.93775 0.716499 7.90214 0.768685 7.85744 0.812368L 4.33216 4.36137Z"
+                      transform="rotate(-90, 4, 2.25)"
+                    ></path>
+                  </svg>
+                  <div>BUDGET</div>
+                </button>
+                <div
+                  class="nav-account-value nav-account-block-value user-data"
+                >
+                  <span class="user-data currency positive">
+                    <bdi>$</bdi>{{ total_of_budget_accounts }}
+                  </span>
+                </div>
+                <div class="nav-account-icons nav-account-icons-right">
+                  <!---->
+                </div>
+              </div>
+              <!---->
+            </div>
+            <!---->
+            <div id="ember26" class="nav-account offBudget ember-view">
+              <div
+                class="nav-account-block"
+                data-ember-action=""
+                data-ember-action-27="27"
+              >
+                <button
+                  class="nav-account-name nav-account-name-button user-data"
+                  aria-label="open TRACKING"
+                >
+                  <svg
+                    height="8"
+                    width="8"
+                    viewBox="0 0 8 4.5"
+                    id="ember28"
+                    class="svg-icon chevronRight ember-view"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M 4.33216 4.36137C 4.28854 4.40532 4.23673 4.44018 4.1797 4.46397C 4.12268 4.48776 4.06155 4.5 3.99982 4.5C 3.93809 4.5 3.87697 4.48776 3.81994 4.46397C 3.76292 4.44018 3.71111 4.40532 3.66749 4.36137L 0.142204 0.812368C 0.0975889 0.768671 0.0620448 0.716491 0.0376352 0.658858C 0.0132256 0.601226 0.000436821 0.539288 1.10203e-05 0.476642C -0.000414781 0.413995 0.0115309 0.351888 0.0351548 0.293925C 0.0587788 0.235961 0.0936101 0.183298 0.137627 0.13899C 0.181644 0.0946828 0.233969 0.0596147 0.291565 0.0358215C 0.349161 0.0120284 0.410881 -1.61275e-05 0.473141 0.000387963C 0.535401 0.000792054 0.596961 0.0136365 0.654247 0.0381753C 0.711533 0.0627141 0.763405 0.0984584 0.80685 0.143333L 3.9998 3.35772L 7.19275 0.143333C 7.23618 0.0983781 7.28805 0.0625574 7.34536 0.037953C 7.40267 0.0133486 7.46427 0.000451258 7.52657 1.14514e-05C 7.58887 -0.000428355 7.65064 0.011598 7.70829 0.0353909C 7.76593 0.0591839 7.8183 0.0942691 7.86235 0.138607C 7.9064 0.182945 7.94126 0.235651 7.96488 0.293661C 7.98851 0.351672 8.00044 0.413829 7.99999 0.476521C 7.99953 0.539213 7.98669 0.601188 7.96222 0.658843C 7.93775 0.716499 7.90214 0.768685 7.85744 0.812368L 4.33216 4.36137Z"
+                      transform="rotate(-90, 4, 2.25)"
+                    ></path>
+                  </svg>
+                  <div>TRACKING</div>
+                </button>
+                <div
+                  class="nav-account-value nav-account-block-value user-data"
+                >
+                  <span class="user-data currency negative">
+                    −<bdi>$</bdi>{{ total_of_tracking_accounts }}
+                  </span>
+                </div>
+                <div class="nav-account-icons nav-account-icons-right">
+                  <!---->
+                </div>
+              </div>
+              <!---->
+            </div>
+            <div id="ember29" class="nav-account closed ember-view">
+              <div
+                class="nav-account-block"
+                data-ember-action=""
+                data-ember-action-30="30"
+              >
+                <button
+                  class="nav-account-name nav-account-name-button user-data"
+                  aria-label="open CLOSED"
+                >
+                  <svg
+                    height="8"
+                    width="8"
+                    viewBox="0 0 8 4.5"
+                    id="ember31"
+                    class="svg-icon chevronRight ember-view"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M 4.33216 4.36137C 4.28854 4.40532 4.23673 4.44018 4.1797 4.46397C 4.12268 4.48776 4.06155 4.5 3.99982 4.5C 3.93809 4.5 3.87697 4.48776 3.81994 4.46397C 3.76292 4.44018 3.71111 4.40532 3.66749 4.36137L 0.142204 0.812368C 0.0975889 0.768671 0.0620448 0.716491 0.0376352 0.658858C 0.0132256 0.601226 0.000436821 0.539288 1.10203e-05 0.476642C -0.000414781 0.413995 0.0115309 0.351888 0.0351548 0.293925C 0.0587788 0.235961 0.0936101 0.183298 0.137627 0.13899C 0.181644 0.0946828 0.233969 0.0596147 0.291565 0.0358215C 0.349161 0.0120284 0.410881 -1.61275e-05 0.473141 0.000387963C 0.535401 0.000792054 0.596961 0.0136365 0.654247 0.0381753C 0.711533 0.0627141 0.763405 0.0984584 0.80685 0.143333L 3.9998 3.35772L 7.19275 0.143333C 7.23618 0.0983781 7.28805 0.0625574 7.34536 0.037953C 7.40267 0.0133486 7.46427 0.000451258 7.52657 1.14514e-05C 7.58887 -0.000428355 7.65064 0.011598 7.70829 0.0353909C 7.76593 0.0591839 7.8183 0.0942691 7.86235 0.138607C 7.9064 0.182945 7.94126 0.235651 7.96488 0.293661C 7.98851 0.351672 8.00044 0.413829 7.99999 0.476521C 7.99953 0.539213 7.98669 0.601188 7.96222 0.658843C 7.93775 0.716499 7.90214 0.768685 7.85744 0.812368L 4.33216 4.36137Z"
+                      transform="rotate(-90, 4, 2.25)"
+                    ></path>
+                  </svg>
+                  <div>CLOSED</div>
+                </button>
+                <div
+                  class="nav-account-value nav-account-block-value user-data"
+                >
+                  <!---->
+                </div>
+                <div class="nav-account-icons nav-account-icons-right">
+                  <!---->
+                </div>
+              </div>
+              <!---->
+            </div>
+          </div>
+
+          <div class="nav-add-accounts">
+            <!---->
+            <button
+              id="ember32"
+              class="button-sidebar nav-add-account button ember-view"
+            >
+              <i id="ember33" class="flaticon stroke ember-view plus-2"></i>
+              Add Account
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="sidebar-bottom">
+      <div id="ember34" class="referral-program ember-view">
+        <a
+          href="/referral_program"
+          data-ember-action=""
+          data-ember-action-35="35"
+        >
+          <svg
+            height="16"
+            width="16"
+            id="ember36"
+            class="ynab-new-icon ember-view"
+          >
+            <use href="#icon_sprite_referral_program"></use>
+
+            <title>Love YNAB? Pay It Forward.</title>
+          </svg>
+          <div class="referral-program-link-text">
+            Love YNAB? Pay It Forward.
+          </div>
+        </a>
+      </div>
+      <button
+        class="sidebar-collapse"
+        data-ember-action=""
+        data-ember-action-37="37"
+      >
+        <svg
+          height="32"
+          width="32"
+          id="ember38"
+          class="ynab-new-icon ember-view"
+        >
+          <use href="#icon_sprite_sidebar_collapse"></use>
+
+          <title>Collapse Sidebar</title>
+        </svg>
+      </button>
+    </div>
+  </div>
+  <div class="sidebar-resizer">
+    <div class="sidebar-resizer-indicator"></div>
+  </div>
+</nav>

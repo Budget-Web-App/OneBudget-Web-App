@@ -1,0 +1,687 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="color-scheme" value="light dark" />
+    <title>{{ website_title }}</title>
+    <meta
+      name="description"
+      content="Personal home budget software built with Four Simple Rules to help you quickly gain control of your money, get out of debt, and reach your financial goals!"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <link
+      rel="stylesheet"
+      media="screen"
+      href="https://ynab-evergreen-assets.youneedabudget.com/ynab-api-production/v1.71424/assets/application-8540e1ffae6caaa4804546ab6efbfa8c54628ff1576b508a10b65f4d9a4ee28d.css"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="https://ynab-evergreen-assets.youneedabudget.com/ynab-api-production/v1.71424/assets/apple-touch-icon-b9ded9cdc782048999fa3cb678634d8d7ef73911553f4e82c209ea30ebf81b7a.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="https://ynab-evergreen-assets.youneedabudget.com/ynab-api-production/v1.71424/assets/favicon-32x32-6ce45c4296f840277101df9ac80880bcf7a15c2667a3f8c04ab13d2a37e9861c.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="https://ynab-evergreen-assets.youneedabudget.com/ynab-api-production/v1.71424/assets/favicon-16x16-7279883c8d4d9e701783eb80a7c9176298728f183fad17edd30dee2709ed3e0f.png"
+    />
+    <link
+      rel="mask-icon"
+      href="https://ynab-evergreen-assets.youneedabudget.com/ynab-api-production/v1.71424/assets/safari-pinned-tab-0f6609450211c5050f3e0e002911754bd2adc442d0e562a8c49df516fc0f81bc.svg"
+      color="#71A3C3"
+    />
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="https://ynab-evergreen-assets.youneedabudget.com/ynab-api-production/v1.71424/assets/favicon-4eaca1462f4d836c2c67e015b4e2c1b24b7328b10a9088e1aefd96acf4c23cb5.ico"
+    />
+    <meta name="msapplication-config" content="none" />
+
+    <meta name="csrf-param" content="authenticity_token" />
+    <meta
+      name="csrf-token"
+      content="36OJDBAXU3lPnV3e0j138edrp9nzM9to+YmNnQ402TTkrPLVH28ovgeXy+b1/70zotewLQ0fN7j2pE2tKfb/CA=="
+    />
+    <meta name="session-token" />
+    <script
+      src="https://apis.google.com/_/scs/apps-static/_/js/k=oz.gapi.en.TenOR_lLL28.O/m=auth2/rt=j/sv=1/d=1/ed=1/am=AQ/rs=AGLTcCMCcuroc7gdKSyRrVMzYC23sHf_SA/cb=gapi.loaded_0?le=oz"
+      nonce=""
+      async=""
+    ></script>
+    <script
+      async=""
+      defer=""
+      src="https://apis.google.com/js/platform.js?onload=googleAPIPlatformInit"
+      gapi_processed="true"
+    ></script>
+    <script
+      type="text/javascript"
+      integrity="sha384-girahbTbYZ9tT03PWWj0mEVgyxtZoyDF9KVZdL+R53PP5wCY0PiVUKq0jeRlMx9M"
+      crossorigin="anonymous"
+      async=""
+      src="https://cdn.amplitude.com/libs/amplitude-7.2.1-min.gz.js"
+    ></script>
+    <script
+      type="text/javascript"
+      async=""
+      src="https://jssdkcdns.mparticle.com/js/v2/51aaee60fc77174eb015ebece9f54a2a/mparticle.js"
+    ></script>
+    <script
+      src="https://connect.facebook.net/signals/config/768631729875601?v=2.9.52&amp;r=stable"
+      async=""
+    ></script>
+    <script async="" src="//connect.facebook.net/en_US/fbevents.js"></script>
+    <script async="" src="//www.google-analytics.com/analytics.js"></script>
+    <script type="application/json" id="ynab_client_constants">
+      {
+        "FACEBOOK_PIXEL_ID": "768631729875601",
+        "GA_TRACKING_ID": "UA-75996-33",
+        "GOOGLE_CLIENT_ID": "309954126688-fup589gaa090t59f4e40cflj17nsvmmv.apps.googleusercontent.com",
+        "MPARTICLE_KEY": "51aaee60fc77174eb015ebece9f54a2a",
+        "MPARTICLE_PRODUCTION": true,
+        "MPARTICLE_OTHER_ID": null,
+        "ROLLBAR_CLIENT_TOKEN": "fc1d977c79f942cab5a2ad34080fc960",
+        "ROLLBAR_ENVIRONMENT": "ynab-api-production",
+        "ROLLBAR_ENABLED": true,
+        "HS_BEACON_ID": null,
+        "CASTLE_APP_ID": "935369532292267"
+      }
+    </script>
+    <script src="https://ynab-evergreen-assets.youneedabudget.com/ynab-api-production/v1.71424/assets/packs/js/before_server_pages-4e334fe767cf6c8e0faa.js"></script>
+    <script nonce="">
+      //<![CDATA[
+
+      window._castle("setAppId", "935369532292267");
+
+      //]]>
+    </script>
+    <script src="https://ynab-evergreen-assets.youneedabudget.com/ynab-api-production/v1.71424/assets/application_head-6655e3ce4f6e3e0d2f1e24f4e9a1d0ab7cc09dcd40e47b258c38332b7c9acdc8.js"></script>
+  </head>
+
+  <body data-page="authentications#new" data-ynab-device="web" class="">
+    <div class="page-wrapper">
+      <header class="page-header">
+        <a
+          title="Back to your Budget"
+          class="ynab-primary-logo launch_app_button"
+          href="/"
+          ><img
+            alt="You Need A Budget."
+            src="https://ynab-evergreen-assets.youneedabudget.com/ynab-api-production/v1.71424/assets/ynab-primary-logo-2003e17c9a0de8f91c6435bf5ad45df87e4e6aabf86245b800ad318d473deb97.svg"
+        /></a>
+      </header>
+
+      <noscript>
+        <div class="no-javascript-container">
+          <div>
+            <h3>Enable JavaScript to see YNAB's standard view</h3>
+            <p>
+              The page you are viewing requires JavaScript for the best
+              experience. Enable JavaScript by changing your browser settings,
+              and then hit refresh to try again.
+            </p>
+          </div>
+        </div>
+      </noscript>
+
+      <main role="main" class="page-main">
+        <div id="login-screen">
+          <section class="aside-content">
+            <aside>
+              <span class="doodle"
+                ><img
+                  src="https://ynab-evergreen-assets.youneedabudget.com/ynab-api-production/v1.71424/assets/doodle-welcome-fb1a36ed72c58dfd8728cf2bbb90b285c1cf579c37f238d3903b310cfa9710cf.svg"
+              /></span>
+              <p>
+                YNAB is a budgeting app that helps you confidently spend your
+                money, get out of debt, and take control of your financial
+                freedom.
+              </p>
+            </aside>
+            <div class="authentications-container">
+              <div class="authentications-container-item" style="display: none">
+                <div><h2>Log In</h2></div>
+                <div>
+                  <p>
+                    New to YNAB?
+                    <a data-switch-auth-to="signup" href="#">Sign up today</a>.
+                  </p>
+                </div>
+                <span
+                  ><form
+                    id="login-form"
+                    data-redirect-url="/"
+                    data-dirty-tracking="false"
+                    action="/api/v1/catalog?operation_name=loginUser"
+                    accept-charset="UTF-8"
+                    data-remote="true"
+                    method="post"
+                    class="form login-form"
+                    novalidate="novalidate"
+                    _lpchecked="1"
+                  >
+                    <input name="utf8" type="hidden" value="✓" />
+                    <p class="js-form-email">
+                      <label for="request_data_email" class="u-sr-only"
+                        >Email:</label
+                      >
+                      <input
+                        autofocus="autofocus"
+                        spellcheck="false"
+                        placeholder="Email address"
+                        type="email"
+                        name="request_data[email]"
+                        id="request_data_email"
+                        class="required valid"
+                        autocomplete="off"
+                        aria-invalid="false"
+                        style="cursor: auto"
+                      />
+                      <label
+                        for="request_data_email"
+                        class="error"
+                        style="display: none"
+                      ></label>
+                    </p>
+                    <p class="js-form-password">
+                      <label for="request_data_password" class="u-sr-only"
+                        >Password:</label
+                      >
+                      <span class="password-toggle"
+                        ><input
+                          placeholder="Password"
+                          autocapitalize="none"
+                          autocomplete="off"
+                          type="password"
+                          name="request_data[password]"
+                          id="request_data_password"
+                          class="required valid error"
+                          style="cursor: auto"
+                          aria-invalid="false"
+                        /><label
+                          ><input
+                            type="checkbox"
+                            data-password-toggle=""
+                            class="error"
+                          />Show</label
+                        ></span
+                      >
+                      <label for="request_data_password" class="error" style=""
+                        >Incorrect password.</label
+                      >
+                    </p>
+                    <p class="remember-me-and-forgot-password">
+                      <label for="request_data_remember_me"
+                        ><input
+                          type="checkbox"
+                          value="1"
+                          name="request_data[remember_me]"
+                          id="request_data_remember_me"
+                        />
+                        Keep me logged in
+                      </label>
+                      <a href="/users/password/new">Forgot password?</a>
+                    </p>
+                    <p></p>
+                    <div>
+                      <button
+                        name="login"
+                        type="submit"
+                        id="login"
+                        data-disable-with="Logging In..."
+                        class="button button-primary"
+                      >
+                        Log In
+                      </button>
+                    </div>
+                    <p></p>
+                    <hr data-content="or" class="u-hr-text" />
+                    <p class="u-sr-only">
+                      Or log in with your Apple or Google account
+                    </p>
+                    <button
+                      name="button"
+                      type="button"
+                      data-label="Continue with Apple"
+                      data-connect-url="/auth/apple/connect"
+                      data-trigger-action="false"
+                      class="button-brand button-brand-apple"
+                    >
+                      <span class="brand-logo"
+                        ><img
+                          src="https://ynab-evergreen-assets.youneedabudget.com/ynab-api-production/v1.71424/assets/apple-logo-24d988857482bc7d60e83447ea01dff8a29c8295705c8af0eb3a5077f0b98853.svg"
+                          class="provider-logo" /></span
+                      ><span class="brand-name">Continue with Apple</span>
+                    </button>
+                    <p class="apple-error" style="display: none"></p>
+                    <button
+                      name="button"
+                      type="button"
+                      data-label="Continue with Google"
+                      class="button-brand button-brand-google"
+                    >
+                      <span class="brand-logo"
+                        ><img
+                          src="https://ynab-evergreen-assets.youneedabudget.com/ynab-api-production/v1.71424/assets/google-logo-54e60c3db3a805b0cdd5ace5c871f691ebe85248f6685f663c0e007ace582b72.svg"
+                          class="provider-logo" /></span
+                      ><span class="brand-name">Continue with Google</span>
+                    </button>
+                    <p class="google-error" style="display: none"></p></form
+                ></span>
+                <!---->
+                <span style="display: none"
+                  ><form
+                    id="otp-login-form"
+                    data-redirect-url="/"
+                    action="/users/authentication"
+                    accept-charset="UTF-8"
+                    method="post"
+                    class="form login-form"
+                  >
+                    <input name="utf8" type="hidden" value="✓" /><input
+                      type="hidden"
+                      name="authenticity_token"
+                      value="GGZbUkYg014TVQ1WyzS9ppaE105//9cjAf0VNggGFHYjaSCLSViomVtfm27s9ndk0zjAuoHTO/MO0NUGL8QySg=="
+                    />
+                    <!---->
+                    <br />
+                    <button
+                      type="submit"
+                      id="otp-login-button"
+                      name="otp-login-button"
+                      disabled="disabled"
+                      class="button button-primary"
+                    >
+                      Verify
+                    </button>
+                  </form>
+                  <!----></span
+                >
+              </div>
+              <div class="authentications-container-item" style="">
+                <h2>Sign Up for YNAB</h2>
+                <p>
+                  Have an account?
+                  <a
+                    data-switch-auth-to="login"
+                    href="#"
+                    class="have-an-account"
+                    >Log in</a
+                  >.
+                </p>
+                <form
+                  data-action="/api/v1/catalog?operation_name=signupUser"
+                  data-token-login-url="/api/v1/catalog?operation_name=getInitialUserData"
+                  data-sso-login-url="/api/v1/catalog?operation_name=loginUser"
+                  data-validate-url="/api/v1/catalog?operation_name=validateEmailAndPassword"
+                  data-redirect-url="/"
+                  data-dirty-tracking="false"
+                  action="/api/v1/catalog?operation_name=signupUser"
+                  accept-charset="UTF-8"
+                  data-remote="true"
+                  method="post"
+                  class="form signup-form"
+                  novalidate="novalidate"
+                  _lpchecked="1"
+                >
+                  <input name="utf8" type="hidden" value="✓" />
+                  <p class="js-form-email">
+                    <label for="request_data_email_signup" class="u-sr-only"
+                      >Email:</label
+                    >
+                    <input
+                      id="request_data_email_signup"
+                      autofocus="autofocus"
+                      spellcheck="false"
+                      placeholder="Email address"
+                      type="email"
+                      name="request_data[email]"
+                      class="required valid"
+                      autocomplete="off"
+                      aria-invalid="false"
+                    />
+                    <label
+                      for="request_data_email_signup"
+                      class="error"
+                      style="display: none"
+                    ></label>
+                  </p>
+                  <p class="js-form-password">
+                    <label for="request_data_password_signup" class="u-sr-only"
+                      >Password:</label
+                    >
+                    <span class="password-toggle"
+                      ><input
+                        id="request_data_password_signup"
+                        placeholder="Password"
+                        autocapitalize="none"
+                        autocomplete="off"
+                        type="password"
+                        name="request_data[password]"
+                        class="required"
+                      /><label
+                        ><input
+                          type="checkbox"
+                          data-password-toggle=""
+                        />Show</label
+                      ></span
+                    >
+                    <label
+                      for="request_data_password_signup"
+                      class="error"
+                    ></label>
+                  </p>
+                  <p class="terms-error" style="display: none">
+                    You must agree to the Terms of Service and Privacy Policy to
+                    create your account.
+                  </p>
+                  <p>
+                    <button
+                      name="sign_up"
+                      type="submit"
+                      id="sign_up"
+                      data-disable-with="Signing Up..."
+                      class="button button-primary"
+                    >
+                      Sign Up
+                    </button>
+                  </p>
+                  <hr data-content="or" class="u-hr-text" />
+                  <p class="u-sr-only">
+                    Or sign up with your Apple or Google account
+                  </p>
+                  <button
+                    name="button"
+                    type="button"
+                    data-label="Continue with Apple"
+                    data-connect-url="/auth/apple/connect"
+                    data-trigger-action="false"
+                    class="button-brand button-brand-apple"
+                  >
+                    <span class="brand-logo"
+                      ><img
+                        src="https://ynab-evergreen-assets.youneedabudget.com/ynab-api-production/v1.71424/assets/apple-logo-24d988857482bc7d60e83447ea01dff8a29c8295705c8af0eb3a5077f0b98853.svg"
+                        class="provider-logo" /></span
+                    ><span class="brand-name">Continue with Apple</span>
+                  </button>
+                  <p class="apple-error" style="display: none"></p>
+                  <button
+                    name="button"
+                    type="button"
+                    data-label="Continue with Google"
+                    class="button-brand button-brand-google"
+                  >
+                    <span class="brand-logo"
+                      ><img
+                        src="https://ynab-evergreen-assets.youneedabudget.com/ynab-api-production/v1.71424/assets/google-logo-54e60c3db3a805b0cdd5ace5c871f691ebe85248f6685f663c0e007ace582b72.svg"
+                        class="provider-logo" /></span
+                    ><span class="brand-name">Continue with Google</span>
+                  </button>
+                  <p class="google-error" style="display: none"></p>
+                </form>
+              </div>
+              <div class="terms-container">
+                <h2>The Legal Stuff</h2>
+                <ul class="tabs">
+                  <li class="active">
+                    <a href="#terms-of-service">Terms of Service</a>
+                  </li>
+                  <li><a href="#privacy-policy">Privacy Policy</a></li>
+                </ul>
+                <div class="tabs-content tabs-content-border">
+                  <iframe
+                    id="terms-of-service"
+                    class="tabs-content-item active"
+                    src="https://www.youneedabudget.com/terms/?isolated"
+                  ></iframe>
+                  <iframe
+                    id="privacy-policy"
+                    class="tabs-content-item"
+                    src="https://www.youneedabudget.com/privacy-policy/?isolated"
+                  ></iframe>
+                </div>
+                <p class="terms-note">
+                  Agree to the Terms of Service and Privacy Policy to continue.
+                </p>
+                <div class="terms-actions">
+                  <button id="terms-disagree" class="button button-secondary">
+                    Disagree
+                  </button>
+                  <button id="terms-agree" class="button button-primary">
+                    Agree
+                  </button>
+                </div>
+              </div>
+              <div class="welcome-back" style="display: none">
+                <h2>Welcome back!</h2>
+                <p>
+                  You have connected your
+                  <span class="welcome-back-provider-name">SSO</span> account to
+                  your existing YNAB account.
+                </p>
+                <p>
+                  <a href="/" class="button button-primary"
+                    >Let's Get Budgeting!</a
+                  >
+                </p>
+              </div>
+            </div>
+          </section>
+        </div>
+      </main>
+    </div>
+
+    <footer>
+      <a
+        rel="noopener noreferrer"
+        target="_blank"
+        href="https://www.youneedabudget.com/terms/"
+        >Terms of Service</a
+      >
+      <a
+        rel="noopener noreferrer"
+        target="_blank"
+        href="https://www.youneedabudget.com/privacy-policy/"
+        >Privacy Policy</a
+      >
+      <span class="copyright"
+        >© Copyright 2022 YNAB LLC. All rights reserved.</span
+      >
+    </footer>
+
+    <script src="https://ynab-evergreen-assets.youneedabudget.com/ynab-api-production/v1.71424/assets/application_vendor-ce62e47eaeed2c7a253db9cabe6a7bcf1ea210ffd10d893334f1855edc3b47ee.js"></script>
+    <script src="https://ynab-evergreen-assets.youneedabudget.com/ynab-api-production/v1.71424/assets/application-60aef22fbb8b63f2c0aa5d819f3b3b70dba051302e55a9920506568a928c80db.js"></script>
+    <script
+      type="text/javascript"
+      src="//www.googleadservices.com/pagead/conversion_async.js"
+      charset="utf-8"
+    ></script>
+    <script src="https://ynab-evergreen-assets.youneedabudget.com/ynab-api-production/v1.71424/assets/packs/js/authentications-da207c34c084914e2c0d.js"></script>
+
+    <iframe
+      id="ssIFrame_google"
+      sandbox="allow-scripts allow-same-origin allow-storage-access-by-user-activation"
+      style="
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        inset: -9999px;
+        display: none;
+      "
+      aria-hidden="true"
+      frame-border="0"
+      src="https://accounts.google.com/o/oauth2/iframe#origin=https%3A%2F%2Fapp.youneedabudget.com&amp;rpcToken=871185506.4365567"
+    ></iframe>
+    <div
+      id="__lpform_request_data_email_numspan"
+      style="
+        position: absolute !important;
+        visibility: visible !important;
+        border: 0px none !important;
+        font-size: 9px !important;
+        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+        top: 11px !important;
+        left: -5px !important;
+        background-color: rgb(128, 128, 128);
+        padding: 1px 2px !important;
+        font-weight: bold !important;
+        color: rgb(255, 255, 255) !important;
+        cursor: default;
+        line-height: 11px !important;
+        max-width: 10px !important;
+        z-index: 21 !important;
+      "
+    >
+      3
+    </div>
+    <div
+      id="__lpform_request_data_email"
+      style="
+        max-height: 16px;
+        vertical-align: top;
+        position: absolute;
+        top: 0px;
+        left: -18px;
+        z-index: 20;
+      "
+    >
+      <img
+        id="__lpform_request_data_email_icon"
+        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAARNJREFUOBGlU72ORWAQPYREq9CtRryBQqJSaGziATyB1/AaV3c7ryAegUZHfxM1hUTiZ82EXbvVcicx35yZOWe+nxDiOP4E8FjX9WNb/22CILy25kjc3GUyTdkHPsSrk4l8GHFpB2/ZbQFVVXnwbQHXdX8EJEkCJRzHwXa7XLAsC57nQVEUxoZhwPd9aJrG+HASBbZtswDFXdeh73sEQUAQsiwjz3OEYcixrutIkoRr5PgI0zR9Jyj+i7fbxjzP3HOuUYJ3UBQFlmXBOI5omoYb0zQFXVRZlkx+Pp8wTRNVVXH9cCxAZBI5W13XZ4i2bfn7ldzA7VfIsoy1bgsMw/CewHEUcf+rDnxpJS4dIbojsnOiL0hfafwTOClcAAAAAElFTkSuQmCC"
+        style="opacity: 0.6; vertical-align: top"
+        width="16"
+        height="0"
+      />
+    </div>
+    <div
+      id="__lpform_request_data_password_numspan"
+      style="
+        position: absolute !important;
+        visibility: visible !important;
+        border: 0px none !important;
+        font-size: 9px !important;
+        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+        top: 11px !important;
+        left: -5px !important;
+        background-color: rgb(128, 128, 128);
+        padding: 1px 2px !important;
+        font-weight: bold !important;
+        color: rgb(255, 255, 255) !important;
+        cursor: default;
+        line-height: 11px !important;
+        max-width: 10px !important;
+        z-index: 22 !important;
+      "
+    >
+      3
+    </div>
+    <div
+      id="__lpform_request_data_password"
+      style="
+        max-height: 16px;
+        vertical-align: top;
+        position: absolute;
+        top: 0px;
+        left: -18px;
+        z-index: 21;
+      "
+    >
+      <img
+        id="__lpform_request_data_password_icon"
+        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAARNJREFUOBGlU72ORWAQPYREq9CtRryBQqJSaGziATyB1/AaV3c7ryAegUZHfxM1hUTiZ82EXbvVcicx35yZOWe+nxDiOP4E8FjX9WNb/22CILy25kjc3GUyTdkHPsSrk4l8GHFpB2/ZbQFVVXnwbQHXdX8EJEkCJRzHwXa7XLAsC57nQVEUxoZhwPd9aJrG+HASBbZtswDFXdeh73sEQUAQsiwjz3OEYcixrutIkoRr5PgI0zR9Jyj+i7fbxjzP3HOuUYJ3UBQFlmXBOI5omoYb0zQFXVRZlkx+Pp8wTRNVVXH9cCxAZBI5W13XZ4i2bfn7ldzA7VfIsoy1bgsMw/CewHEUcf+rDnxpJS4dIbojsnOiL0hfafwTOClcAAAAAElFTkSuQmCC"
+        style="opacity: 0.6; vertical-align: top"
+        width="16"
+        height="0"
+      />
+    </div>
+    <div
+      id="__lpform_request_data_email_signup_numspan"
+      style="
+        position: absolute !important;
+        visibility: visible !important;
+        border: 0px none !important;
+        font-size: 9px !important;
+        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+        top: 235px !important;
+        left: 1297px !important;
+        background-color: rgb(128, 128, 128);
+        padding: 1px 2px !important;
+        font-weight: bold !important;
+        color: rgb(255, 255, 255) !important;
+        cursor: default;
+        line-height: 11px !important;
+        max-width: 10px !important;
+        z-index: 19 !important;
+      "
+    >
+      3
+    </div>
+    <div
+      id="__lpform_request_data_email_signup"
+      style="
+        max-height: 16px;
+        vertical-align: top;
+        position: absolute;
+        top: 224px;
+        left: 1284.5px;
+        z-index: 18;
+      "
+    >
+      <img
+        id="__lpform_request_data_email_signup_icon"
+        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAARNJREFUOBGlU72ORWAQPYREq9CtRryBQqJSaGziATyB1/AaV3c7ryAegUZHfxM1hUTiZ82EXbvVcicx35yZOWe+nxDiOP4E8FjX9WNb/22CILy25kjc3GUyTdkHPsSrk4l8GHFpB2/ZbQFVVXnwbQHXdX8EJEkCJRzHwXa7XLAsC57nQVEUxoZhwPd9aJrG+HASBbZtswDFXdeh73sEQUAQsiwjz3OEYcixrutIkoRr5PgI0zR9Jyj+i7fbxjzP3HOuUYJ3UBQFlmXBOI5omoYb0zQFXVRZlkx+Pp8wTRNVVXH9cCxAZBI5W13XZ4i2bfn7ldzA7VfIsoy1bgsMw/CewHEUcf+rDnxpJS4dIbojsnOiL0hfafwTOClcAAAAAElFTkSuQmCC"
+        style="opacity: 0.6; vertical-align: top"
+        width="16"
+        height="16"
+      />
+    </div>
+    <div
+      id="__lpform_request_data_password_signup_numspan"
+      style="
+        position: absolute !important;
+        visibility: visible !important;
+        border: 0px none !important;
+        font-size: 9px !important;
+        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+        top: 297px !important;
+        left: 1297px !important;
+        background-color: rgb(128, 128, 128);
+        padding: 1px 2px !important;
+        font-weight: bold !important;
+        color: rgb(255, 255, 255) !important;
+        cursor: default;
+        line-height: 11px !important;
+        max-width: 10px !important;
+        z-index: 20 !important;
+      "
+    >
+      3
+    </div>
+    <div
+      id="__lpform_request_data_password_signup"
+      style="
+        max-height: 16px;
+        vertical-align: top;
+        position: absolute;
+        top: 286px;
+        left: 1284.5px;
+        z-index: 19;
+      "
+    >
+      <img
+        id="__lpform_request_data_password_signup_icon"
+        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAARNJREFUOBGlU72ORWAQPYREq9CtRryBQqJSaGziATyB1/AaV3c7ryAegUZHfxM1hUTiZ82EXbvVcicx35yZOWe+nxDiOP4E8FjX9WNb/22CILy25kjc3GUyTdkHPsSrk4l8GHFpB2/ZbQFVVXnwbQHXdX8EJEkCJRzHwXa7XLAsC57nQVEUxoZhwPd9aJrG+HASBbZtswDFXdeh73sEQUAQsiwjz3OEYcixrutIkoRr5PgI0zR9Jyj+i7fbxjzP3HOuUYJ3UBQFlmXBOI5omoYb0zQFXVRZlkx+Pp8wTRNVVXH9cCxAZBI5W13XZ4i2bfn7ldzA7VfIsoy1bgsMw/CewHEUcf+rDnxpJS4dIbojsnOiL0hfafwTOClcAAAAAElFTkSuQmCC"
+        style="opacity: 0.6; vertical-align: top"
+        width="16"
+        height="16"
+      />
+    </div>
+  </body>
+</html>
