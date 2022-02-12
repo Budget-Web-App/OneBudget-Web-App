@@ -2353,6 +2353,7 @@
                     aria-label="previous month budget"
                     data-ember-action=""
                     data-ember-action-40="40"
+                    onclick="window.location='{{url_for('budget', budget_id='1', year=(year-1 if month==1 else year), month=(month-1 if month!=1 else 12))}}'"
                   >
                     <svg
                       height="40"
@@ -2369,7 +2370,7 @@
                       data-ember-action=""
                       data-ember-action-42="42"
                     >
-                      Feb 2022
+                      {{ month_short }} {{ year }}
                       <i
                         id="ember43"
                         class="flaticon stroke ember-view down"
@@ -2388,6 +2389,7 @@
                     aria-label="next month budget"
                     data-ember-action=""
                     data-ember-action-45="45"
+                    onclick="window.location='{{url_for('budget', budget_id='1', year=(year+1 if month==12 else year), month=(month+1 if month!=12 else 1))}}'"
                   >
                     <svg
                       height="40"
@@ -2398,7 +2400,9 @@
                       <use href="#icon_sprite_budget_monthnext"></use>
                     </svg>
                   </button>
-                  <!---->
+                  <button class="button budget-header-go-to-today {% if month==currentmonth%}hidden{% endif %}" data-ember-action="" data-ember-action-1258="1258" onclick="window.location='{{url_for('budget',budget_id='1',year=currentyear,month=currentmonth)}}'">
+                    Today
+                  </button>
                 </div>
 
                 <div class="budget-header-item budget-header-totals">
@@ -16321,7 +16325,7 @@ tickets, accommodations, activities, etc. "
                     >
                       <button id="ember1422" class="card-roll-up ember-view">
                         <h2>
-                          Available in February
+                          Available in {{ month_long }}
                           <svg
                             height="24"
                             width="24"
@@ -16346,7 +16350,7 @@ tickets, accommodations, activities, etc. "
                             </div>
                           </div>
                           <div>
-                            <div>Assigned in February</div>
+                            <div>Assigned in {{ month_long }}</div>
                             <div class="user-data">
                               <span class="user-data currency positive"
                                 ><bdi>$</bdi>2,465.99</span

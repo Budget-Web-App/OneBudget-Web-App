@@ -381,6 +381,11 @@
   --textinput_border_active: #4495d7;
   color-scheme: light only;
 }
+
+.hidden {
+  visibility: hidden;
+}
+
 [data-ynab-device="android"],
 [data-ynab-device="ios"] {
   color-scheme: light dark;
