@@ -50,7 +50,11 @@
             </button>
           </li>
           <li class="navlink navlink-budget active">
-            <a href="{{url_for('budget',budget_id='1',year=currentyear,month=currentmonth)}}" id="ember16" class="ember-view">
+            <a
+              href="{{url_for('budget',budget_id='1',year=currentyear,month=currentmonth)}}"
+              id="ember16"
+              class="ember-view"
+            >
               <svg
                 height="24"
                 width="24"
@@ -63,7 +67,11 @@
             </a>
           </li>
           <li class="navlink navlink-reports">
-            <a href="/reports/spending/totals" id="ember18" class="ember-view">
+            <a
+              href="{{url_for('spendingTotals',budget_id='1')}}"
+              id="ember18"
+              class="ember-view"
+            >
               <svg
                 height="24"
                 width="24"
