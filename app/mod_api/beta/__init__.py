@@ -9,7 +9,7 @@ import json
 import sys
 import os
 
-
+# Blueprint to Append /beta as url prefix
 api_bp = Blueprint('beta', __name__, url_prefix="/beta")
 api = Api(api_bp)
 
@@ -19,6 +19,13 @@ my_optimus = Optimus(
 
 
 def ToDict(results) -> list:
+    """
+    ToDict Converts recieved results into dictionary,
+    and encodes id.
+
+    :param results: the results from the fetchall() function of SQLAlchemy
+    :return: returns a list of dictionary entries for each of the SQL rows
+    """
     dictList = []
     for row in results:
         row = dict(row)
@@ -27,15 +34,37 @@ def ToDict(results) -> list:
     return dictList
 
 
-class Colors():
+class Color():
 
     def __init__(self, red, green, blue):
         self.red = red
         self.green = green
         self.blue = blue
 
-    def decode(self):
+    def to_hex(self) -> str:
+        """
+        to_hex converts Color object to hex value
+
+        :return: return hex color value as string 
+        """
         return '{:02x}{:02x}{:02x}'.format(self.red, self.green, self.blue)
+
+    def to_rgb(self) -> tuple:
+        """
+        to_hex converts Color object to rgb value
+
+        :return: return rgb color value as tuple 
+        """
+        return tuple(self.red, self.green, self.blue)
+
+    def from_hex(Hex: str):
+        value = Hex.lstrip('#')
+        lv = len(value)
+        values = [int(value[i:i+lv/3], 16) for i in range(0, lv, lv/3)]
+        return Color(values[0], values[1], values[2])
+
+    def from_rgb(rbg: tuple):
+        return Color(rbg[0], rbg[1], rbg[2])
 
 
 def encode_emoji(encoded_emoji):
@@ -44,9 +73,7 @@ def encode_emoji(encoded_emoji):
 
 class Budget(Resource):
 
-    def get(self, budgetId: str):
-        # Will be replaced with SQL query
-        budgetID = int(budgetId)
+    def get(self, budgetId: int):
         decodedId = my_optimus.decode(budgetId)
         query = 'SELECT * FROM Categories Where BudgetId = {0};'.format(
             decodedId)
