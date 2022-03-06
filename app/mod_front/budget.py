@@ -1,21 +1,31 @@
 from unicodedata import category
-from flask import render_template
+from flask import render_template, Flask
 import calendar
+import requests
 from datetime import datetime
 
 
 def init_route(app):
     @app.route("/<string:budget_id>/budget/<int:year>/<int:month>")
     def budget(budget_id: str, year: int, month: int):
+
         # Get current year
-        currentyear = datetime.now().year
+        app.config['CURRENT_YEAR'] = datetime.now().year
+
         # Get current Month
-        currentmonth = datetime.now().month
+        app.config['CURRENT_MONTH'] = datetime.now().month
+
+
         month_short = calendar.month_abbr[month]
         month_long = calendar.month_name[month]
-        budget_name = "let's get this bread 🤑"
-        email_address = "canadyreceipts@gmail.com"
-        program_name = "1Budget"
+
+        url = "http://127.0.0.1:5000/api/beta/budgets/{0}".format(budget_id)
+
+        budget_information = requests.get(url)
+
+        app.config['budget_name'] = "let's get this bread 🤑"
+        app.config['email_address'] = "canadyreceipts@gmail.com"
+
         Age_of_Money = "13"
         total_of_budget_accounts = "444.69"
         total_of_tracking_accounts = "22,963.45"
@@ -25,14 +35,15 @@ def init_route(app):
 
         # Calculating next year
         next_year = year+1 if month == 12 else year
+        
         # Calculating next mont
         next_month = month+1 if month != 12 else 1
 
         return render_template(
             '/main/budget.html',
-            budget_name=budget_name,
-            email_address=email_address,
-            program_name=program_name,
+            budget_name=app.config['budget_name'],
+            email_address=app.config['email_address'],
+            program_name=app.config['program_name'],
             Age_of_Money=Age_of_Money,
             to_be_budgeted_amount=to_be_budgeted_amount,
             total_of_budget_accounts=total_of_budget_accounts,
@@ -43,6 +54,6 @@ def init_route(app):
             month=month,
             month_short=month_short,
             month_long=month_long,
-            currentyear=currentyear,
-            currentmonth=currentmonth
+            currentyear=app.config['CURRENT_YEAR'],
+            currentmonth=app.config['CURRENT_MONTH']
         )

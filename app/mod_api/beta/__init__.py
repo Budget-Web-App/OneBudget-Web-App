@@ -2,7 +2,6 @@ from importlib.resources import Resource
 from sys import prefix
 from flask import Blueprint, jsonify, make_response
 from flask_restful import Resource, Api
-from optimus_ids import Optimus
 from flask_sqlalchemy import SQLAlchemy
 from app import mod_db
 import json
@@ -12,10 +11,6 @@ import os
 # Blueprint to Append /beta as url prefix
 api_bp = Blueprint('beta', __name__, url_prefix="/beta")
 api = Api(api_bp)
-
-my_optimus = Optimus(
-    prime=1
-)
 
 
 def ToDict(results) -> list:
@@ -29,7 +24,7 @@ def ToDict(results) -> list:
     dictList = []
     for row in results:
         row = dict(row)
-        row["idbudgets"] = my_optimus.encode(row["idbudgets"])
+        row["idbudgets"] = ""
         dictList.append(row)
     return dictList
 
@@ -74,7 +69,7 @@ def encode_emoji(encoded_emoji):
 class Budget(Resource):
 
     def get(self, budgetId: int):
-        decodedId = my_optimus.decode(budgetId)
+        decodedId = ""
         query = 'SELECT * FROM Categories Where BudgetId = {0};'.format(
             decodedId)
         result = db.engine.execute(query)
