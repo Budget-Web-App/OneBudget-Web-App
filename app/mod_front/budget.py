@@ -3,6 +3,7 @@ from flask import render_template, Flask
 import calendar
 import requests
 from datetime import datetime
+from flask_modals import render_template_modal
 
 
 def init_route(app):
@@ -39,7 +40,7 @@ def init_route(app):
         # Calculating next mont
         next_month = month+1 if month != 12 else 1
 
-        return render_template(
+        return render_template_modal(
             '/main/budget.html',
             budget_name=app.config['budget_name'],
             email_address=app.config['email_address'],
@@ -55,5 +56,6 @@ def init_route(app):
             month_short=month_short,
             month_long=month_long,
             currentyear=app.config['CURRENT_YEAR'],
-            currentmonth=app.config['CURRENT_MONTH']
+            currentmonth=app.config['CURRENT_MONTH'],
+            modal='actions-modal'
         )
