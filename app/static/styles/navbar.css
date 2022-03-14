@@ -1,0 +1,9 @@
+#ember8 {
+    transition: all .5s ease-in-out;
+    z-index: 99;
+    width: 257px;
+}
+
+.collapsed {
+    width: 56px;
+}

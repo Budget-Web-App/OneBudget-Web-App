@@ -4,10 +4,11 @@ import calendar
 import requests
 from datetime import datetime
 from flask_modals import render_template_modal
+from app.mod_front.common import view
 
 
 def init_route(app):
-    @app.route("/<string:budget_id>/budget/<int:year>/<int:month>")
+    @view.route("/<string:budget_id>/budget/<int:year>/<int:month>")
     def budget(budget_id: str, year: int, month: int):
 
         # Get current year
@@ -40,7 +41,7 @@ def init_route(app):
         # Calculating next mont
         next_month = month+1 if month != 12 else 1
 
-        return render_template_modal(
+        return render_template(
             '/main/budget.html',
             budget_name=app.config['budget_name'],
             email_address=app.config['email_address'],
@@ -57,5 +58,4 @@ def init_route(app):
             month_long=month_long,
             currentyear=app.config['CURRENT_YEAR'],
             currentmonth=app.config['CURRENT_MONTH'],
-            modal='actions-modal'
         )

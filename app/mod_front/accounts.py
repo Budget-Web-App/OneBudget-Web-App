@@ -1,10 +1,11 @@
 from flask import jsonify, render_template
 import calendar
 from datetime import datetime
+from app.mod_front.common import view
 
 
 def init_route(app):
-    @app.route("/accounts")
+    @view.route("/accounts")
     def accounts():
         app.config['budget_name'] = "let's get this bread 🤑"
         app.config['email_address'] = "canadyreceipts@gmail.com"

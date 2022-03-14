@@ -8743,7 +8743,7 @@ body.theme-dark ::-webkit-scrollbar-corner {
     border-radius: .4rem;
     height: auto;
     position: relative;
-    z-index: 1;
+    /* z-index: 1; */
     box-shadow: 0 16px 64px rgba(0, 0, 0, .2);
     transform: scale(.8);
     transition: transform 150ms ease, opacity 100ms ease;
@@ -8823,7 +8823,7 @@ body.theme-dark ::-webkit-scrollbar-corner {
     position: fixed;
     top: 0;
     width: 100%;
-    z-index: 10001
+    z-index: 1;
 }
 
 .modal-error {
@@ -19776,7 +19776,7 @@ button.ynab-flag-none {
     border-right: 1px solid rgba(0, 0, 0, .1);
     border-right: 1px solid var(--divider_subdued);
     display: flex;
-    width: 260px;
+    /* width: 260px; */
     z-index: 102
 }
 
