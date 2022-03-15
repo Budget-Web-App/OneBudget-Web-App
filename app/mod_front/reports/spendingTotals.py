@@ -1,10 +1,11 @@
 from flask import render_template
 from datetime import datetime
 import requests
+from app.mod_front.reports.common import reports
 
 
 def init_route(app):
-    @app.route("/<string:budget_id>/reports/spending/totals")
+    @reports.route("/<string:budget_id>/spending/totals")
     def spendingTotals(budget_id: str):
         # Get current year
         currentyear = datetime.now().year

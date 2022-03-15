@@ -5,10 +5,15 @@ import requests
 from datetime import datetime
 from flask_modals import render_template_modal
 from app.mod_front.common import view
+from flask_login import current_user, login_required
 
 
 def init_route(app):
+    @view.route("/budget")
+    def budget_new():
+        return render_template('/main/budget_new.html')
     @view.route("/<string:budget_id>/budget/<int:year>/<int:month>")
+    @login_required
     def budget(budget_id: str, year: int, month: int):
 
         # Get current year
@@ -44,7 +49,7 @@ def init_route(app):
         return render_template(
             '/main/budget.html',
             budget_name=app.config['budget_name'],
-            email_address=app.config['email_address'],
+            email_address=current_user.email,
             program_name=app.config['program_name'],
             Age_of_Money=Age_of_Money,
             to_be_budgeted_amount=to_be_budgeted_amount,

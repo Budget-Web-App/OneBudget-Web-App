@@ -12,15 +12,16 @@ def init_route(app):
     @auth.route("/login", methods=["GET", "POST"])
     def login():
         if request.method == "POST":
-            email = request.POST.get("email")
-            password = request.POST.get("password")
+            email = request.form.get("email")
+            password = request.form.get("password")
 
             user = User.query.filter_by(email=email).first()
 
             if user:
                 if check_password_hash(user.password, password):
                     flash("logged in!", category='success')
-                    return redirect(url_for('mod_front.budget'))
+                    login_user(user,remember=True)
+                    return redirect(url_for('view.budget',budget_id=0,month=3,year=2022))
                 else:
                     flash('Password is incorrect!', category='error')
             else:
@@ -35,28 +36,19 @@ def init_route(app):
 
         if request.method == 'POST':
             email = request.form.get('email')
-            username = request.form.get('username')
-            password1 = request.form.get('password1')
-            password2 = request.form.get('password2')
+            password1 = request.form.get('password')
 
             email_exists = User.query.filter_by(email=email).first()
-            username_exists = User.query.filter_by(username=username).first()
 
             if email_exists:
                 flash('Email is already in use.', category='error')
-            elif username_exists:
-                flash('Username is already in use.', category='error')
-            elif password1 != password2:
-                flash('Passwords don\'t match!', category='error')
-            elif len(username) < 2:
-                flash('Username is too short.', category='error')
             elif len(password1) < 6:
                 flash('Password is too short', category='error')
             else:
                 password_hash = generate_password_hash(
                     password=password1, method='sha256')
 
-                new_user = User(email=email, username=username,
+                new_user = User(email=email,
                                 password=password_hash)
                 db.session.add(new_user)
                 db.session.commit()
@@ -64,7 +56,7 @@ def init_route(app):
                 login_user(new_user, remember=True)
 
                 flash('User Created!')
-                return redirect(url_for('mod_front.accounts'))
+                return redirect(url_for('view.accounts'))
 
         return render_template("/auth/signup.html")
 

@@ -25,7 +25,6 @@ def create_app():
     mod_auth.init_route(app)
     mod_front.init_app(app)
     mod_api.init_api(app)
-    app.register_blueprint(mod_api.api_bp)
 
     # services.init_app(app)
     return app

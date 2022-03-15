@@ -7,10 +7,10 @@ from app import mod_db
 import json
 import sys
 import os
+from app.mod_api.beta.routes import beta
 
 # Blueprint to Append /beta as url prefix
 api_bp = Blueprint('beta', __name__, url_prefix="/beta")
-api = Api(api_bp)
 
 
 def ToDict(results) -> list:
@@ -92,9 +92,14 @@ class Budgets(Resource):
 
 
 def init_api(app):
-    global db
+    #global db
     db = mod_db.init_db(app)
-    api.add_resource(Budgets, '/budgets', methods=['GET', 'POST'])
-    api.add_resource(Budget, '/budgets/<int:budgetId>',
-                     methods=['GET', 'PATCH', 'DELETE'])
-    return api_bp
+
+    api_bp.register_blueprint(beta)
+
+    app.register_blueprint(api_bp)
+
+    #api.add_resource(Budgets, '/budgets', methods=['GET', 'POST'])
+    #api.add_resource(Budget, '/budgets/<int:budgetId>',
+    #                 methods=['GET', 'PATCH', 'DELETE'])
+    #return api_bp

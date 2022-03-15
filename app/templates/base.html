@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>Budget | {{ budget_name }} | {{ program_name }}</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+        crossorigin="anonymous"></script>
+
+    <meta name="description"
+        content="Personal home budget software built with Four Simple Rules to help you quickly gain control of your money, get out of debt, and reach your financial goals!" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta name="budget-application-version" content="v0.1.0.0" />
+
+    <meta name="robots" content="noindex" />
+    <meta name="csrf-param" content="authenticity_token" />
+    <link rel="author" type="text/plain" href="/humans.txt" />
+    <link rel="apple-touch-icon" sizes="180x180"
+        href="{{url_for('static',filename='images/apple-touch-icon-b9ded9cdc782048999fa3cb678634d8d7ef73911553f4e82c209ea30ebf81b7a.png')}}" />
+    <link rel="icon" type="image/png" sizes="32x32"
+        href="{{url_for('static',filename='images/favicon-32x32-6ce45c4296f840277101df9ac80880bcf7a15c2667a3f8c04ab13d2a37e9861c.png')}}" />
+    <link rel="icon" type="image/png" sizes="16x16"
+        href="{{url_for('static',filename='images/favicon-16x16-7279883c8d4d9e701783eb80a7c9176298728f183fad17edd30dee2709ed3e0f.png')}}" />
+    <link rel="mask-icon"
+        href="{{url_for('static',filename='images/safari-pinned-tab-0f6609450211c5050f3e0e002911754bd2adc442d0e562a8c49df516fc0f81bc.svg')}}"
+        color="#71A3C3" />
+    <link rel="shortcut icon" type="image/x-icon"
+        href="{{url_for('static',filename='images/favicon-4eaca1462f4d836c2c67e015b4e2c1b24b7328b10a9088e1aefd96acf4c23cb5.ico')}}" />
+    <link rel="stylesheet" href="{{url_for('static',filename='style/navbar.css')}}" type="text/css">
+    <meta name="msapplication-config" content="none" />
+
+    <link rel="stylesheet" href="{{url_for('static',filename='styles/ynab-web.fcf001a76056ee2d18d6e829f347e0a9.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='styles/action_options_model.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='styles/before_ynab_web_head-5555f669.css')}}">
+    {% block head %}{% endblock %}
+    {% include 'navbar_new.html'%}
+</head>
+
+<body>
+    {% block body %}{% endblock %}
+</body>
+
+</html>

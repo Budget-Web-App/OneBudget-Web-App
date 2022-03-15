@@ -5,6 +5,7 @@ if __name__ == "__main__":
     application = app.create_app()
     
     application.config['program_name'] = "1Budget"
+    application.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
     # load modals
 
