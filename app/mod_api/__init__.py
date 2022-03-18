@@ -32,7 +32,6 @@ def register_route(app):
 
 
 def init_api(app):
-    app.register_blueprint(beta.beta_blueprint)
     register_route(app)
+    beta.init_api_beta(api_bp)
     app.register_blueprint(api_bp)
-    beta.init_api_beta(app)

@@ -1,7 +1,7 @@
 from flask import Blueprint, request
 from flask import Blueprint, request, redirect, url_for, flash
 from app import mod_db
-from app.mod_api.beta.routes import users, budgets, categories
+from app.mod_api.beta import routes
 from app.mod_db.models import User
 from flask_login import login_user, logout_user, login_required, current_user
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -9,7 +9,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 beta_blueprint = Blueprint('beta', __name__, url_prefix="/beta")
 
 
-def register_route(app):
+def register_route():
     @beta_blueprint.route("/signin", methods=["GET", "POST"])
     def signin():
         if request.method == "POST":
@@ -31,11 +31,9 @@ def register_route(app):
                 flash('User does not exist', category='error')
         return {"data": {}}
 
-def init_api_beta(app):
-    register_route(app)
-    print("hello")
-    beta_blueprint.register_blueprint(users.users)
-    beta_blueprint.register_blueprint(budgets.budgets)
-    beta_blueprint.register_blueprint(categories.categories)
+def init_api_beta(parent):
+    register_route()
+    routes.register_routes(beta_blueprint)
+    parent.register_blueprint(beta_blueprint)
     #global db
     #db = mod_db.init_db(app)
