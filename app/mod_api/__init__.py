@@ -1,5 +1,5 @@
 from flask import Blueprint, request, redirect, url_for, flash
-from app.mod_api.beta import routes
+from app.mod_api import beta
 from app.mod_db.models import User
 from flask_login import login_user, logout_user, login_required, current_user
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -32,7 +32,7 @@ def register_route(app):
 
 
 def init_api(app):
+    app.register_blueprint(beta.beta_blueprint)
     register_route(app)
     app.register_blueprint(api_bp)
-    api_bp.register_blueprint(routes.beta)
-    routes.init_api_beta(app)
+    beta.init_api_beta(app)
