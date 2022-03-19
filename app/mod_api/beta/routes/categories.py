@@ -1,5 +1,7 @@
-from flask import Blueprint, request, g
-from app.mod_db.models import User
+from unicodedata import name
+from flask import Blueprint, request, g, jsonify
+from app.mod_db import db
+from app.mod_db.models.users import Category
 
 
 # Blueprint to Append /beta as url prefix
@@ -22,8 +24,21 @@ def register_route(parent):
     def list_categories():
         """
         """
-        # if request.method == "POST":
-        return {"data": {"budget_id":g.budget_id}}
+        if request.method == "POST":
+            name = request.form.get("name")
+            parent_id = request.form.get("parent")
+            new_category = Category(
+                name=name,
+                parent_id=parent_id,
+                budget_id=g.budget_id
+            )
+            db.session.add(new_category)
+            db.session.commit()
+            return {"data":new_category.to_dict(show_all=True)}
+
+        categories = Category.query.filter_by(budget_id=g.budget_id).all()
+
+        return jsonify(data=[category.to_dict(show_all=True) for category in categories])
 
     @categories_blueprint.route("/<string:user_id>", methods=["GET", "PUT", "DELETE"])
     def category(user_id):

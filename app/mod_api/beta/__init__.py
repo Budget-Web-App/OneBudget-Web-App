@@ -13,6 +13,7 @@ def register_route():
     @beta_blueprint.route("/signin", methods=["GET", "POST"])
     def signin():
         if request.method == "POST":
+            next_url = request.args.get("next")
             email = request.form.get('email')
             password = request.form.get('password')
             remember_me = False if request.form.get(
@@ -22,14 +23,16 @@ def register_route():
 
             if user:
                 if check_password_hash(user.password, password):
-                    flash("logged in!", category='success')
-                    login_user(user, remember=remember_me)
-                    return redirect(url_for('view.budget', budget_id=0, month=3, year=2022))
+                    print("here")
+                    #login_user(user, remember=remember_me)
+                    if next_url:
+                        print(next_url)
+                        return redirect(next_url)
                 else:
                     flash('Password is incorrect!', category='error')
             else:
                 flash('User does not exist', category='error')
-        return {"data": {}}
+        return {"data": 1}
 
 def init_api_beta(parent):
     register_route()

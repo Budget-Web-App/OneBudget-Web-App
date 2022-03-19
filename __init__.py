@@ -11,4 +11,4 @@ if __name__ == "__main__":
 
 
     # run app
-    application.run(use_reloader=True, debug=True)
+    application.run(use_reloader=True, debug=True,host="192.168.1.212")

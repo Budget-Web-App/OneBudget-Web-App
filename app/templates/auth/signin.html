@@ -12,12 +12,12 @@
   <div>
     <p>
       New to YNAB?
-      <a data-switch-auth-to="signup" href="{{url_for('auth.sign_up')}}">Sign up today</a>.
+      <a data-switch-auth-to="signup" href="url_for('auth.sign_up')">Sign up today</a>.
     </p>
   </div>
   <span>
-    <form id="login-form" data-redirect-url="/" data-dirty-tracking="false" action="http://127.0.0.1:5000/api/signin"
-      accept-charset="UTF-8" data-remote="true" method="post" class="form login-form" novalidate="novalidate">
+    <form id="login-form" action="{{url_for('api.beta.signin',next=url_for('view.budget', budget_id=1, month=3, year=2022))}}"
+      accept-charset="UTF-8" method="post" class="form login-form" novalidate="novalidate">
       <input name="utf8" type="hidden" value="✓" />
       <p class="js-form-email">
         <label for="request_data_email" class="u-sr-only">Email:</label>
@@ -47,26 +47,6 @@
           Log In
         </button>
       </div>
-      <p></p>
-      <hr data-content="or" class="u-hr-text" />
-      <p class="u-sr-only">
-        Or log in with your Apple or Google account
-      </p>
-      <button name="button" type="button" data-label="Continue with Apple" data-connect-url="/auth/apple/connect"
-        data-trigger-action="false" class="button-brand button-brand-apple">
-        <span class="brand-logo"><img
-            src="https://ynab-evergreen-assets.youneedabudget.com/ynab-api-production/v1.71424/assets/apple-logo-24d988857482bc7d60e83447ea01dff8a29c8295705c8af0eb3a5077f0b98853.svg"
-            class="provider-logo" /></span><span class="brand-name">Continue
-          with Apple</span>
-      </button>
-      <p class="apple-error"></p>
-      <button name="button" type="button" data-label="Continue with Google" class="button-brand button-brand-google">
-        <span class="brand-logo"><img
-            src="https://ynab-evergreen-assets.youneedabudget.com/ynab-api-production/v1.71424/assets/google-logo-54e60c3db3a805b0cdd5ace5c871f691ebe85248f6685f663c0e007ace582b72.svg"
-            class="provider-logo" /></span><span class="brand-name">Continue
-          with Google</span>
-      </button>
-      <p class="google-error"></p>
     </form>
   </span>
   <!---->

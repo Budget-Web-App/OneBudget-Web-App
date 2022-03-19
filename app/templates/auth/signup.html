@@ -14,23 +14,19 @@
     Have an account?
     <a data-switch-auth-to="login" href="{{url_for('auth.login')}}" class="have-an-account">Log in</a>.
   </p>
-  <form data-action="/api/v1/catalog?operation_name=signupUser"
-    data-token-login-url="/api/v1/catalog?operation_name=getInitialUserData"
-    data-sso-login-url="/api/v1/catalog?operation_name=loginUser"
-    data-validate-url="/api/v1/catalog?operation_name=validateEmailAndPassword" data-redirect-url="/"
-    data-dirty-tracking="false" action="/api/v1/catalog?operation_name=signupUser" accept-charset="UTF-8"
+  <form action="{{url_for('api.beta.users.list_users')}}" accept-charset="UTF-8"
     data-remote="true" method="post" class="form signup-form" novalidate="novalidate">
     <input name="utf8" type="hidden" value="✓" />
     <p class="js-form-email">
       <label for="request_data_email_signup" class="u-sr-only">Email:</label>
       <input id="request_data_email_signup" autofocus="autofocus" spellcheck="false" placeholder="Email address"
-        type="email" name="request_data[email]" class="required" />
+        type="email" name="email" class="required" />
       <label for="request_data_email_signup" class="error"></label>
     </p>
     <p class="js-form-password">
       <label for="request_data_password_signup" class="u-sr-only">Password:</label>
       <span class="password-toggle"><input id="request_data_password_signup" placeholder="Password"
-          autocapitalize="none" autocomplete="off" type="password" name="request_data[password]"
+          autocapitalize="none" autocomplete="off" type="password" name="password"
           class="required" /><label><input type="checkbox" data-password-toggle="" />Show</label></span>
       <label for="request_data_password_signup" class="error"></label>
     </p>
@@ -43,25 +39,6 @@
         Sign Up
       </button>
     </p>
-    <hr data-content="or" class="u-hr-text" />
-    <p class="u-sr-only">
-      Or sign up with your Apple or Google account
-    </p>
-    <button name="button" type="button" data-label="Continue with Apple" data-connect-url="/auth/apple/connect"
-      data-trigger-action="false" class="button-brand button-brand-apple">
-      <span class="brand-logo"><img
-          src="https://ynab-evergreen-assets.youneedabudget.com/ynab-api-production/v1.71424/assets/apple-logo-24d988857482bc7d60e83447ea01dff8a29c8295705c8af0eb3a5077f0b98853.svg"
-          class="provider-logo" /></span><span class="brand-name">Continue with
-        Apple</span>
-    </button>
-    <p class="apple-error"></p>
-    <button name="button" type="button" data-label="Continue with Google" class="button-brand button-brand-google">
-      <span class="brand-logo"><img
-          src="https://ynab-evergreen-assets.youneedabudget.com/ynab-api-production/v1.71424/assets/google-logo-54e60c3db3a805b0cdd5ace5c871f691ebe85248f6685f663c0e007ace582b72.svg"
-          class="provider-logo" /></span><span class="brand-name">Continue with
-        Google</span>
-    </button>
-    <p class="google-error"></p>
   </form>
 </div>
 
