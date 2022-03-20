@@ -4,6 +4,7 @@ from flask_login import UserMixin
 from sqlalchemy.sql import func
 from sqlalchemy import text
 
+
 class Model(db.Model):
     """Base SQLAlchemy Model for automatic serialization and
     deserialization of columns and nested relationships.
@@ -187,6 +188,7 @@ class Model(db.Model):
 
         if not path:
             path = self.__tablename__.lower()
+
             def prepend_path(item):
                 item = item.lower()
                 if item.split('.', 1)[0] == path:
@@ -272,6 +274,7 @@ class Budget(Model):
     #budget_currency_placement_id = db.Column(db.Integer, db.ForeignKey)
     budget_user_id = db.Column(
         db.Integer, db.ForeignKey('user.id'), nullable=False)
+
 
 class Category(Model):
     __tablename__ = 'category'

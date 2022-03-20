@@ -2,6 +2,7 @@ from unicodedata import name
 from flask import Blueprint, request, g, jsonify
 from app.mod_db import db
 from app.mod_db.models.users import Category
+from sqlalchemy_filters import apply_filters
 
 
 # Blueprint to Append /beta as url prefix
@@ -36,7 +37,15 @@ def register_route(parent):
             db.session.commit()
             return {"data":new_category.to_dict(show_all=True)}
 
-        categories = Category.query.filter_by(budget_id=g.budget_id).all()
+        filter = request.args.get("filter")
+
+        sanitized_filter = parse_filter(filters=filter)
+
+        sanitized_filter["budget_id"] = g.budget_id
+
+        #print(sanitized_filter)
+
+        categories = Category.query.filter_by(**sanitized_filter).all()
 
         return jsonify(data=[category.to_dict(show_all=True) for category in categories])
 
@@ -45,3 +54,22 @@ def register_route(parent):
         """
         """
         return {"data": {}}
+
+
+def parse_filter(filters:str) -> dict:
+    """
+    """
+    
+    filter_dict = dict()
+
+    if "=" in filters:
+        # () used to seperate filters
+        parse = filters.replace("(","").replace(")","").split("=")
+        if parse[0] == "parent":
+            if parse[1] == "None":
+                filter_dict["parent_id"] = None
+            else:
+                filter_dict["parent_id"] = parse[1]
+
+    return filter_dict
+    

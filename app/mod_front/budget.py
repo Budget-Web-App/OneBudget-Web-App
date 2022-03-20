@@ -35,14 +35,25 @@ def init_route(app):
         if budget_information["data"] == []:
             create_default()
 
-        print(budget_information["data"][0]["budget_id"])
-
-        category_url = "http://{0}/api/beta/budgets/{1}/categories/".format(request.host, budget_information["data"][0]["budget_id"])
+        category_url = "http://{0}/api/beta/budgets/{1}/categories/?filter=(parent=None)".format(request.host, budget_information["data"][0]["budget_id"])
         
         categories_raw = requests.get(category_url)
         categories_dict = json.loads(categories_raw.text)
-        categories = categories_dict["data"]
-        print(categories)
+        parent_categories = categories_dict["data"]
+
+        categories = []
+
+        for parent_category in parent_categories:
+            category_url = "http://{0}/api/beta/budgets/{1}/categories/?filter=(parent={2})".format(request.host, budget_information["data"][0]["budget_id"], parent_category["id"])
+            categories_raw = requests.get(category_url)
+            categories_dict = json.loads(categories_raw.text)
+            child_categories = categories_dict["data"]
+            categories.append(parent_category)
+            if child_categories:
+                categories.extend(child_categories)
+                print(parent_category["id"])
+                #print(child_categories)
+
 
         app.config['budget_name'] = "let's get this bread 🤑"
         app.config['email_address'] = "canadyreceipts@gmail.com"
@@ -59,6 +70,8 @@ def init_route(app):
 
         # Calculating next mont
         next_month = month+1 if month != 12 else 1
+
+        print(categories)
 
         return render_template(
             '/main/budget.html',

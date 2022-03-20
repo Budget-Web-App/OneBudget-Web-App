@@ -2293,8 +2293,7 @@
 
               {% if category["parent_id"] == None %}
 
-              <ul draggable="true" id="ember66"
-                class="budget-table-row js-budget-table-row is-master-category ember-view">
+              <ul draggable="true" class="budget-table-row js-budget-table-row is-master-category ember-view">
                 <li class="budget-table-cell-margin js-budget-table-cell-margin-left">
                   &nbsp;
                 </li>
@@ -2313,11 +2312,9 @@
                 </li>
                 <li class="budget-table-cell-name">
                   <button class="button budget-table-cell-button budget-table-cell-edit-category user-data"
-                    title="{{category['name']}}">
-                    {{category['name']}}
-                  </button>
+                    title="{{category['name']}}">{{category['name']}}</button>
                   <button class="button budget-table-cell-add-category budget-table-cell-button" title="Add Category"
-                    aria-label="Add Category">
+                    aria-label="Add Category" onclick="NewSubCategory(this)">
                     <svg height="16" width="16" id="ember69" class="ynab-new-icon ember-view">
                       <use href="#icon_sprite_toolbar_add"></use>
                     </svg>
@@ -2362,7 +2359,7 @@
                 <li class="budget-table-cell-checkbox">
                   <div title="" id="ember1380" class="ynab-checkbox ember-view">
                     <button class="ynab-checkbox-button js-ynab-checkbox-button" aria-checked="false"
-                      aria-label="Starbucks ☕️" role="checkbox" type="button">
+                      aria-label="{{category['name']}}" role="checkbox" type="button">
                       <div class="flaticon stroke ynab-checkbox-button-square"></div>
                     </button>
                     <!---->
@@ -2372,9 +2369,7 @@
                 <li class="budget-table-cell-name">
                   <button
                     class="button budget-table-cell-name-row-label-item budget-table-cell-button budget-table-cell-edit-category user-data"
-                    title="Starbucks ☕️">
-                    Starbucks ☕️
-                  </button>
+                    title="{{category['name']}}">{{category['name']}}</button>
                 </li>
                 <li class="budget-table-cell-budgeted">
                   <div id="ember1385" class="ynab-new-currency-input ember-view">
@@ -3081,4 +3076,24 @@
       window.removeEventListener('mousemove', resize)
     }
   </script>
+  {% endblock %}
+
+  {% block script %}
+
+  <script>
+    //TODO Refactor so it doesn't need to have an existing subcategory to grab as a reference
+    function NewSubCategory(parent_category_element) {
+      const insertBeforeNode = parent_category_element.parentNode.parentNode.nextSibling.nextSibling;
+      const node1 = document.getElementsByClassName('is-sub-category')[0];
+      const parent = parent_category_element.parentNode.parentNode.parentNode;
+      const clone = node1.cloneNode(true);
+      const nameelment = clone.querySelector('.budget-table-cell-name').querySelector('.budget-table-cell-edit-category');
+      nameelment.innerHTML = "Test 7"
+      console.log(parent)
+      console.log(nameelment)
+      
+      parent.insertBefore(clone,insertBeforeNode);
+    }
+  </script>
+
   {% endblock %}
