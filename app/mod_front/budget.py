@@ -11,8 +11,25 @@ import json
 
 def init_route(app):
     @view.route("/budget")
+    @login_required
     def budget_new():
-        return render_template('/main/budget_new.html')
+        """location where users go after sign in/up
+
+        Returns:
+            _type_: _description_
+        """
+        url = "http://{0}{1}".format(request.host, url_for(
+            'api.beta.budgets.list_budgets', user_id=current_user.id))
+
+        print(current_user.id)
+        
+        budget_information_raw = requests.get(url)
+        budget_information = json.loads(budget_information_raw.text)
+        print(budget_information)
+        if not budget_information["data"]:
+            new_budget = create_default().json()["data"]
+            return {"data":new_budget["budget_id"]}
+        return {"data":"budgets"}
 
     @view.route("/<string:budget_id>/budget/<int:year>/<int:month>")
     @login_required
@@ -101,7 +118,8 @@ def create_default():
         "name": "new_budget",
         "user_id": current_user.id,
     }
-    requests.post(
+    default_budget = requests.post(
         url=url,
         data=body
     )
+    return default_budget

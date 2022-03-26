@@ -12,33 +12,32 @@
   <div>
     <p>
       New to YNAB?
-      <a data-switch-auth-to="signup" href="url_for('auth.sign_up')">Sign up today</a>.
+      <a data-switch-auth-to="signup" href="{{url_for('auth.sign_up')}}">Sign up today</a>.
     </p>
   </div>
   <span>
-    <form id="login-form" action="{{url_for('api.beta.signin',next=url_for('view.budget', budget_id=1, month=3, year=2022))}}"
-      accept-charset="UTF-8" method="post" class="form login-form" novalidate="novalidate">
+    <form id="login-form" method="post" accept-charset="UTF-8" class="form login-form" novalidate="novalidate">
+      {{ form.csrf_token }}
       <input name="utf8" type="hidden" value="✓" />
       <p class="js-form-email">
         <label for="request_data_email" class="u-sr-only">Email:</label>
-        <input autofocus="autofocus" spellcheck="false" placeholder="Email address" type="email" name="email"
-          id="request_data_email" class="required valid" autocomplete="off" aria-invalid="false" />
-        <label for="request_data_email" class="error" style="display: none"></label>
+        {{form.email(autofocus="autofocus", spellcheck="false", placeholder="Email address", type="email", id="request_data_email", class="required valid", autocomplete="off")}}
+        {% for error in form.email.errors %}
+          <label for="request_data_email" class="error">{{error}}</label>
+        {% endfor %}
       </p>
       <p class="js-form-password">
         <label for="request_data_password" class="u-sr-only">Password:</label>
         <span class="password-toggle">
-          <input placeholder="Password" autocapitalize="none" autocomplete="off" type="password" name="password"
-            id="request_data_password" class="required" />
+          {{form.password(placeholder="Password", autocapitalize="none", autocomplete="off", type="password", id="request_data_password", class="required")}}
           <label>
-            <input type="checkbox" data-password-toggle="" />Show</label></span>
-        <label for="request_data_password" class="error"></label>
+            <input id="show_password" type="checkbox" data-password-toggle="" />Show</label></span>
+          {% for error in form.password.errors %}
+            <label for="request_data_password" class="error">{{error}}</label>
+          {% endfor %}
       </p>
       <p class="remember-me-and-forgot-password">
-        <label for="request_data_remember_me">
-          <input type="checkbox" value="1" name="rememberme" id="request_data_remember_me" />
-          Keep me logged in
-        </label>
+          {{form.rememberme(type="checkbox", value="1", id="request_data_remember_me")}}{{ form.rememberme.label }}
         <a href="/users/password/new">Forgot password?</a>
       </p>
       <p></p>
@@ -49,20 +48,23 @@
       </div>
     </form>
   </span>
-  <!---->
-  <span style="display: none">
-    <form id="otp-login-form" data-redirect-url="/" action="/users/authentication" accept-charset="UTF-8" method="post"
-      class="form login-form">
-      <input name="utf8" type="hidden" value="✓" /><input type="hidden" name="authenticity_token"
-        value="GGZbUkYg014TVQ1WyzS9ppaE105//9cjAf0VNggGFHYjaSCLSViomVtfm27s9ndk0zjAuoHTO/MO0NUGL8QySg==" />
-      <!---->
-      <br />
-      <button type="submit" id="otp-login-button" name="otp-login-button" disabled="disabled"
-        class="button button-primary">
-        Verify
-      </button>
-    </form>
-    <!---->
-  </span>
 </div>
+{% endblock %}
+
+{% block script %}
+
+<script>
+  const passField = document.querySelector("#request_data_password");
+  const showBtn = document.querySelector("#show_password");
+  showBtn.onclick = (()=>{
+    if(passField.type === "password"){
+      passField.type = "text";
+      showBtn.classList.add("hide-btn");
+    }else{
+      passField.type = "password";
+      showBtn.classList.remove("hide-btn");
+    }
+  });
+</script>
+
 {% endblock %}

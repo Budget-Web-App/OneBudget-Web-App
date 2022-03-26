@@ -1,5 +1,5 @@
-from flask import Blueprint, request
-from flask import Blueprint, request, redirect, url_for, flash
+import code
+from flask import Blueprint, request, redirect, url_for, flash, jsonify,render_template
 from app import mod_db
 from app.mod_api.beta import routes
 from app.mod_db.models import User
@@ -12,7 +12,17 @@ beta_blueprint = Blueprint('beta', __name__, url_prefix="/beta")
 def register_route():
     @beta_blueprint.route("/signin", methods=["GET", "POST"])
     def signin():
+        qtc_data = request.get_json()
+        print(qtc_data)
+
+        return "tanks"
+
         if request.method == "POST":
+            qtc_data = request.get_json()
+            print(qtc_data)
+
+            return "tanks"
+
             next_url = request.args.get("next")
             email = request.form.get('email')
             password = request.form.get('password')
@@ -23,15 +33,13 @@ def register_route():
 
             if user:
                 if check_password_hash(user.password, password):
-                    print("here")
-                    #login_user(user, remember=remember_me)
+                    login_user(user, remember=remember_me)
                     if next_url:
-                        print(next_url)
                         return redirect(next_url)
                 else:
-                    flash('Password is incorrect!', category='error')
+                    return {"data":"invalid username or password"}
             else:
-                flash('User does not exist', category='error')
+                return {"data":"user does not exist"}
         return {"data": 1}
 
 def init_api_beta(parent):

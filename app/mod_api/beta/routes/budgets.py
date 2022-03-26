@@ -26,7 +26,7 @@ def register_route(parent):
             )
             db.session.add(new_budget)
             db.session.commit()
-            return {"data": "Successfully created Budget"}
+            return {"data": new_budget.to_dict(show_all=True)}
         elif request.method == "GET":
             user_id = request.args.get("user_id")
 

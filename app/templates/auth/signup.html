@@ -14,8 +14,8 @@
     Have an account?
     <a data-switch-auth-to="login" href="{{url_for('auth.login')}}" class="have-an-account">Log in</a>.
   </p>
-  <form action="{{url_for('api.beta.users.list_users')}}" accept-charset="UTF-8"
-    data-remote="true" method="post" class="form signup-form" novalidate="novalidate">
+  <form action="{{url_for('api.beta.users.list_users',next=url_for('view.budget_new'))}}"
+    accept-charset="UTF-8" data-remote="true" method="post" class="form signup-form" novalidate="novalidate">
     <input name="utf8" type="hidden" value="✓" />
     <p class="js-form-email">
       <label for="request_data_email_signup" class="u-sr-only">Email:</label>
@@ -25,9 +25,13 @@
     </p>
     <p class="js-form-password">
       <label for="request_data_password_signup" class="u-sr-only">Password:</label>
-      <span class="password-toggle"><input id="request_data_password_signup" placeholder="Password"
-          autocapitalize="none" autocomplete="off" type="password" name="password"
-          class="required" /><label><input type="checkbox" data-password-toggle="" />Show</label></span>
+      <span class="password-toggle">
+        <input id="request_data_password_signup" placeholder="Password" autocapitalize="none" autocomplete="off"
+          type="password" name="password" class="required" />
+        <label>
+          <input type="checkbox" data-password-toggle="" />Show
+        </label>
+      </span>
       <label for="request_data_password_signup" class="error"></label>
     </p>
     <p class="terms-error">
@@ -35,7 +39,7 @@
       create your account.
     </p>
     <p>
-      <button name="sign_up" type="submit" id="sign_up" data-disable-with="Signing Up..." class="button button-primary">
+      <button name="sign_up" type="submit" data-disable-with="Signing Up..." class="button button-primary">
         Sign Up
       </button>
     </p>
