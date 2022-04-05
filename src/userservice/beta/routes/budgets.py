@@ -1,7 +1,7 @@
 from distutils.log import error
 from flask import Blueprint, request, jsonify
-from app.mod_db import db
-from app.mod_api.beta.routes import categories
+#from app.mod_db import db
+from src.userservice.beta.routes import categories
 from app.mod_db.models.users import Budget
 
 # Blueprint to Append /beta as url prefix

@@ -1,6 +1,8 @@
-from flask import Blueprint, request, redirect, url_for, flash
 from app.mod_api import beta
+from app.mod_api.common import app
 from app.mod_db.models import User
+
+from flask import Blueprint, request, redirect, url_for, flash
 from flask_login import login_user, logout_user, login_required, current_user
 from werkzeug.security import generate_password_hash, check_password_hash
 
@@ -8,7 +10,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 api_bp = Blueprint('api', __name__, url_prefix="/api")
 
 
-def register_route(app):
+def register_route():
     @api_bp.route("/signin", methods=["GET", "POST"])
     def signin():
         if request.method == "POST":
@@ -31,7 +33,7 @@ def register_route(app):
         return {"data": {}}
 
 
-def init_api(app):
+def init_api():
     register_route(app)
     beta.init_api_beta(api_bp)
     app.register_blueprint(api_bp)

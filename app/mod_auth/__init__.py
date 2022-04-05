@@ -2,6 +2,7 @@ from flask import Blueprint, request, render_template, redirect, url_for, flash
 from app.mod_db import db
 from app.mod_db.models import User
 from app.forms.signin_form import login_form
+from app.forms.signup_form import signup_form
 from flask_login import login_user, logout_user, login_required, current_user
 from werkzeug.security import generate_password_hash, check_password_hash
 from app.forms.signin_form import login_form
@@ -17,12 +18,25 @@ def init_route(app):
             login_user(form._user,remember=form.rememberme.data)
             print("Here")
             return redirect(url_for('view.budget_new'))
-        return render_template('auth/signin.html', title='Sign In', form=form)
+        return render_template('auth/signin.html', title='Sign In', form=form, program_name = app.config['program_name'])
 
     @auth.route('/signup', methods=['GET'])
     def sign_up():
-
-        return render_template("/auth/signup.html")
+        form = signup_form()
+        if form.validate_on_submit():
+            #login_user(form._user,remember=form.rememberme.data)
+            print("Here")
+            #return redirect(url_for('view.budget_new'))
+        return render_template("/auth/signup.html",form=form,program_name = app.config['program_name'])
+    
+    @auth.route('/resetpassword', methods=['GET'])
+    def reset_password():
+        form = signup_form()
+        if form.validate_on_submit():
+            #login_user(form._user,remember=form.rememberme.data)
+            print("Here")
+            #return redirect(url_for('view.budget_new'))
+        return render_template("/auth/Reset_Password.html",form=form,program_name = app.config['program_name'])
 
     @auth.route('/logout')
     @login_required
