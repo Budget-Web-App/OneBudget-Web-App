@@ -25,4 +25,4 @@ services:
       BUDGETS_DB_URI: "postgresql://accountsadmin:accountspwd@accounts-db:5432/accountsdb"
       CATEGORIES_DB_URI: "postgresql://accountsadmin:accountspwd@accounts-db:5432/accountsdb"
     # Valid levels are debug, info, warning, error, critical. If no valid level is set, gunicorn will default to info.
-      LOG_LEVEL: info
+      LOG_LEVEL: debug
