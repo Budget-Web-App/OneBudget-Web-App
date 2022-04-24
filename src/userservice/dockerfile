@@ -40,7 +40,7 @@ ADD requirements.txt /app/requirements.txt
 RUN pip install -r /app/requirements.txt
 
 # Add application code.
-ADD *.py /app/
+COPY . /app/
 
 # Copy logging configuration for gunicorn
 COPY logging.conf /logging.conf

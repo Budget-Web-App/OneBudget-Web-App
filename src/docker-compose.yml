@@ -26,3 +26,20 @@ services:
       CATEGORIES_DB_URI: "postgresql://accountsadmin:accountspwd@accounts-db:5432/accountsdb"
     # Valid levels are debug, info, warning, error, critical. If no valid level is set, gunicorn will default to info.
       LOG_LEVEL: debug
+  
+  frontend:
+    platform: linux/amd64
+    build: ./frontend
+    ports:
+    - "5010:5010"
+    links:
+    - userservice:userservice
+    environment:
+      VERSION: v0.1.0
+      PORT: 5010
+      ENABLE_TRACING: "true"
+      TOKEN_EXPIRY_SECONDS: 3600
+      USERSERVICE_API_ADDR: "userservice:5000"
+      APP_NAME: "OneBudget"
+    # Valid levels are debug, info, warning, error, critical. If no valid level is set, gunicorn will default to info.
+      LOG_LEVEL: debug

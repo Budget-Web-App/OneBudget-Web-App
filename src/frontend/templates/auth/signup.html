@@ -1,0 +1,23 @@
+{% extends 'auth/auth_base.html' %}
+
+{% block authentication %}
+<div id="signup-form-container">
+    <h2>Sign Up</h2>
+    <form id="signup-form" method="post" accept-charset="UTF-8" novalidate="novalidate">
+        <p class="js-form-email">
+            <input type="text" name="email" placeholder="Email">
+        </p>
+
+        <p class="js-form-password">
+            <input type="password" name="password" placeholder="Password">
+        </p>
+
+        <p>
+            <input name="signup" value="Sign Up" type="submit" id="signup" data-disable-with="Logging In..."
+                class="button button-primary">
+        </p>
+
+        <a href="{{url_for('signin')}}">Sign In</a>
+    </form>
+</div>
+{% endblock %}

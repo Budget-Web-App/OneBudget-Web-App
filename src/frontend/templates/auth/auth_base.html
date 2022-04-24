@@ -1,0 +1,29 @@
+{% extends 'template_base.html' %}
+
+{% block css %}
+    <link rel="stylesheet" media="screen" href="{{ url_for('static', filename='styles/YNAB Sign Page.css') }}" />
+    <link rel="stylesheet" media="screen" href="{{ url_for('static', filename='styles/signin.css') }}" />
+    <link rel="stylesheet" media="screen" href="{{ url_for('static', filename='styles/normal_site_navbar.css') }}" />
+{% endblock %}
+
+{% block body %}
+<div class="page-wrapper">
+
+    <noscript>
+        <div class="no-javascript-container">
+            <div>
+                <h3>Enable JavaScript to see {{program_name}}'s standard view</h3>
+                <p>
+                    The page you are viewing requires JavaScript for the best
+                    experience. Enable JavaScript by changing your browser settings,
+                    and then hit refresh to try again.
+                </p>
+            </div>
+        </div>
+    </noscript>
+
+    <main role="main" class="page-main">
+        {% block authentication %} {% endblock %}
+    </main>
+</div>
+{% endblock %}
