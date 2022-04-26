@@ -1,3 +1,7 @@
+{% extends "app/app_base.html" %}
+
+{% block css %}
+
 <style>
     #app-navbar {
         border-right: 1px solid black;
@@ -315,15 +319,9 @@
     }
 </style>
 
-<div id="app-container">
-    <div id="app-navbar">
-        <ul>
-            <li><a href="#home">Budget</a></li>
-            <li><a href="#news">Reports</a></li>
-            <li><a href="#contact">Accounts</a></li>
-        </ul>
-    </div>
-    <div id="main-app">
+{% endblock %}
+
+{% block application %}
         <div id="month-year-container">
             <select id="years">
                 <option value="2022">2022</option>
@@ -465,10 +463,10 @@
                 </div>
             </aside>
         </div>
-    </div>
-</div>
 
+{% endblock %}
 
+{% block script %}
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script type="text/javascript">
     $(document).ready(function () {
@@ -505,3 +503,4 @@
         $(this).addClass('highlight');
     });
 </script>
+{% endblock %}

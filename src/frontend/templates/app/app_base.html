@@ -1,0 +1,91 @@
+<html lang="en">
+
+<head>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    {% for message in messages %}
+    <p style="text-align: center; color: #9C27B0;">{{ message }}</p>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="color-scheme" value="light dark" />
+    <title>{{ website_title }}</title>
+    <meta name="description"
+        content="Personal home budget software built with Four Simple Rules to help you quickly gain control of your money, get out of debt, and reach your financial goals!" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <link rel="apple-touch-icon" sizes="180x180"
+        href="https://ynab-evergreen-assets.youneedabudget.com/ynab-api-production/v1.71424/assets/apple-touch-icon-b9ded9cdc782048999fa3cb678634d8d7ef73911553f4e82c209ea30ebf81b7a.png" />
+    <link rel="icon" type="image/png" sizes="32x32"
+        href="https://ynab-evergreen-assets.youneedabudget.com/ynab-api-production/v1.71424/assets/favicon-32x32-6ce45c4296f840277101df9ac80880bcf7a15c2667a3f8c04ab13d2a37e9861c.png" />
+    <link rel="icon" type="image/png" sizes="16x16"
+        href="https://ynab-evergreen-assets.youneedabudget.com/ynab-api-production/v1.71424/assets/favicon-16x16-7279883c8d4d9e701783eb80a7c9176298728f183fad17edd30dee2709ed3e0f.png" />
+    <link rel="mask-icon"
+        href="https://ynab-evergreen-assets.youneedabudget.com/ynab-api-production/v1.71424/assets/safari-pinned-tab-0f6609450211c5050f3e0e002911754bd2adc442d0e562a8c49df516fc0f81bc.svg"
+        color="#71A3C3" />
+    <link rel="shortcut icon" type="image/x-icon"
+        href="https://ynab-evergreen-assets.youneedabudget.com/ynab-api-production/v1.71424/assets/favicon-4eaca1462f4d836c2c67e015b4e2c1b24b7328b10a9088e1aefd96acf4c23cb5.ico" />
+    <meta name="msapplication-config" content="none" />
+
+    <meta name="csrf-param" content="authenticity_token" />
+    <meta name="csrf-token"
+        content="36OJDBAXU3lPnV3e0j138edrp9nzM9to+YmNnQ402TTkrPLVH28ovgeXy+b1/70zotewLQ0fN7j2pE2tKfb/CA==" />
+    <meta name="session-token" />
+    <script
+        src="https://apis.google.com/_/scs/apps-static/_/js/k=oz.gapi.en.TenOR_lLL28.O/m=auth2/rt=j/sv=1/d=1/ed=1/am=AQ/rs=AGLTcCMCcuroc7gdKSyRrVMzYC23sHf_SA/cb=gapi.loaded_0?le=oz"
+        nonce="" async=""></script>
+    <script async="" defer="" src="https://apis.google.com/js/platform.js?onload=googleAPIPlatformInit"
+        gapi_processed="true"></script>
+    <script type="text/javascript" integrity="sha384-girahbTbYZ9tT03PWWj0mEVgyxtZoyDF9KVZdL+R53PP5wCY0PiVUKq0jeRlMx9M"
+        crossorigin="anonymous" async="" src="https://cdn.amplitude.com/libs/amplitude-7.2.1-min.gz.js"></script>
+    <script type="text/javascript" async=""
+        src="https://jssdkcdns.mparticle.com/js/v2/51aaee60fc77174eb015ebece9f54a2a/mparticle.js"></script>
+    <script src="https://connect.facebook.net/signals/config/768631729875601?v=2.9.52&amp;r=stable" async=""></script>
+    <script async="" src="//connect.facebook.net/en_US/fbevents.js"></script>
+    <script async="" src="//www.google-analytics.com/analytics.js"></script>
+    <script type="application/json" id="ynab_client_constants">
+      {
+        "FACEBOOK_PIXEL_ID": "768631729875601",
+        "GA_TRACKING_ID": "UA-75996-33",
+        "GOOGLE_CLIENT_ID": "309954126688-fup589gaa090t59f4e40cflj17nsvmmv.apps.googleusercontent.com",
+        "MPARTICLE_KEY": "51aaee60fc77174eb015ebece9f54a2a",
+        "MPARTICLE_PRODUCTION": true,
+        "MPARTICLE_OTHER_ID": null,
+        "ROLLBAR_CLIENT_TOKEN": "fc1d977c79f942cab5a2ad34080fc960",
+        "ROLLBAR_ENVIRONMENT": "ynab-api-production",
+        "ROLLBAR_ENABLED": true,
+        "HS_BEACON_ID": null,
+        "CASTLE_APP_ID": "935369532292267"
+      }
+    </script>
+    <script
+        src="https://ynab-evergreen-assets.youneedabudget.com/ynab-api-production/v1.71424/assets/packs/js/before_server_pages-4e334fe767cf6c8e0faa.js"></script>
+    <script nonce="">
+        //<![CDATA[
+
+        window._castle("setAppId", "935369532292267");
+
+      //]]>
+    </script>
+    <script
+        src="https://ynab-evergreen-assets.youneedabudget.com/ynab-api-production/v1.71424/assets/application_head-6655e3ce4f6e3e0d2f1e24f4e9a1d0ab7cc09dcd40e47b258c38332b7c9acdc8.js"></script>
+    {% block css %} {% endblock %}
+</head>
+
+<body>
+    <div id="app-container">
+        {% include 'app/navigation/appnavbar.html' %}
+        <div id="main-app">
+            {% block application %} {% endblock %}
+        </div>
+    </div>
+
+    {% include 'footer.html' %}
+</body>
+
+{% block script %} {% endblock %}
+
+</html>

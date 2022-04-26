@@ -3,7 +3,7 @@ CREATE TABLE IF NOT EXISTS users (
   email VARCHAR(64) UNIQUE NOT NULL,
   passhash BYTEA NOT NULL,
   registereddate DATE,
-  timezone VARCHAR(8) NOT NULL
+  timezone VARCHAR(9) NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS budgets (

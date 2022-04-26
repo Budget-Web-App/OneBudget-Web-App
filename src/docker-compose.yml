@@ -13,6 +13,11 @@ services:
     - "5000:5000"
     links:
     - accounts-db:accounts-db
+    volumes:
+      - type: volume
+        source: keys
+        target: /root/.ssh/
+        read_only: true
     environment:
       VERSION: v0.5.0
       PORT: 5000
@@ -26,7 +31,7 @@ services:
       CATEGORIES_DB_URI: "postgresql://accountsadmin:accountspwd@accounts-db:5432/accountsdb"
     # Valid levels are debug, info, warning, error, critical. If no valid level is set, gunicorn will default to info.
       LOG_LEVEL: debug
-  
+
   frontend:
     platform: linux/amd64
     build: ./frontend
@@ -34,7 +39,15 @@ services:
     - "5010:5010"
     links:
     - userservice:userservice
+    volumes:
+      - type: volume
+        source: keys
+        target: /root/.ssh/
+        read_only: true
     environment:
+      PRIV_KEY_PATH: "/root/.ssh/privatekey"
+      PUB_KEY_PATH: "/root/.ssh/publickey"
+      SECRET: "test123"
       VERSION: v0.1.0
       PORT: 5010
       ENABLE_TRACING: "true"
@@ -43,3 +56,6 @@ services:
       APP_NAME: "OneBudget"
     # Valid levels are debug, info, warning, error, critical. If no valid level is set, gunicorn will default to info.
       LOG_LEVEL: debug
+
+volumes:
+  keys:
