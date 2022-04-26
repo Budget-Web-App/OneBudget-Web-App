@@ -1,0 +1,156 @@
+:root {
+    --backgroundPrimary: #25333d
+}
+
+/* line 24, app/assets/stylesheets/application.scss */
+body {
+    color: #383E41;
+    color: var(--textBodyPrimary, #383E41);
+    background-color: var(--backgroundPrimary);
+    font-family: "Lato", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    -moz-osx-font-smoothing: grayscale;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    /* Avoid the IE 10-11 `min-height` bug. */
+}
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    vertical-align: baseline;
+    font: inherit;
+    font-size: 100%;
+}
+
+.page-main {
+    display: flex !important;
+    justify-content: space-around !important;
+    margin: auto !important;
+    width: 100% !important;
+}
+
+footer {
+    color: #ABABAB;
+    font-family: "Sense", Helvetica, Arial, sans-serif;
+    font-size: 0.875rem;
+    line-height: 0.9375rem;
+    padding: 2rem 0;
+    margin: auto;
+    width: 640px;
+    flex-shrink: 0;
+    display: block;
+    border: 0;
+    box-sizing: border-box;
+}
+
+footer {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    vertical-align: baseline;
+    font: inherit;
+    font-size: 100%;
+    text-align: center;
+    width: 100%;
+}
+
+footer a, footer a:active, footer a:visited, footer a:focus {
+    color: #ABABAB;
+    margin-right: 1.25rem;
+    text-decoration: none;
+}
+
+a {
+    margin: 0;
+    margin-right: 0px;
+    padding: 0;
+    border: 0;
+    vertical-align: baseline;
+    font: inherit;
+    font-size: 100%;
+}
+
+span {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    vertical-align: baseline;
+    font: inherit;
+    font-size: 100%;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+a, a:active, a:visited, a:focus, a:hover {
+    color: var(--primaryAction, #4495D7);
+    outline: 0;
+    text-decoration: underline;
+}
+
+h2 {
+    color: #ABABAB;
+    text-align: center;
+    font-family: "Sense", Helvetica, Arial, sans-serif;
+    font-size: 2.25rem;
+    font-weight: 900;
+    line-height: 2.5625rem;
+    margin-top: 2rem;
+}
+
+#login-form-container, #signup-form-container {
+    margin: auto;
+    height: 100%;
+    width: 20%;
+    font-size: 16px;
+}
+
+input {
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    font-size: inherit;
+    box-sizing: border-box;
+    background-color: transparent;
+    border: 2px solid #ABABAB;
+    width: 100%;
+    padding: 15px;
+    border-radius: 4px;
+    color: #ffff;
+    margin: 10px 0;
+}
+
+input[type=submit] {
+    font-size: inherit;
+    background-color: #5eb68b;
+    border-color: #5eb68b;
+}
+
+.remember-me-and-forgot-password {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    color: #ABABAB;
+    margin: auto;
+}
+
+.remember-me-and-forgot-password a {
+    text-decoration: none;
+    color: inherit;
+    width: 50%;
+}
+
+.remember-me-and-forgot-password a:last-child {
+    text-align: right;
+}
+
+input:focus-visible {
+    outline: 2px solid #5eb68b;
+}

@@ -1,64 +1,42 @@
 from flask import Blueprint, request, render_template, redirect, url_for, flash
 from app.mod_db import db
 from app.mod_db.models import User
+from app.forms.signin_form import login_form
+from app.forms.signup_form import signup_form
 from flask_login import login_user, logout_user, login_required, current_user
 from werkzeug.security import generate_password_hash, check_password_hash
+from app.forms.signin_form import login_form
 
 auth = Blueprint("auth", __name__, url_prefix="/")
 
 
 def init_route(app):
-
     @auth.route("/login", methods=["GET", "POST"])
     def login():
-        if request.method == "POST":
-            email = request.form.get("email")
-            password = request.form.get("password")
+        form = login_form()
+        if form.validate_on_submit():
+            login_user(form._user,remember=form.rememberme.data)
+            print("Here")
+            return redirect(url_for('view.budget_new'))
+        return render_template('auth/signin.html', title='Sign In', form=form, program_name = app.config['program_name'])
 
-            user = User.query.filter_by(email=email).first()
-
-            if user:
-                if check_password_hash(user.password, password):
-                    flash("logged in!", category='success')
-                    login_user(user,remember=True)
-                    return redirect(url_for('view.budget',budget_id=0,month=3,year=2022))
-                else:
-                    flash('Password is incorrect!', category='error')
-            else:
-                flash('User does not exist', category='error')
-
-        email = request.form.get("email")
-        password = request.form.get("password")
-        return render_template("/auth/signin.html")
-
-    @auth.route('/signup', methods=['GET', 'POST'])
+    @auth.route('/signup', methods=['GET'])
     def sign_up():
-
-        if request.method == 'POST':
-            email = request.form.get('email')
-            password1 = request.form.get('password')
-
-            email_exists = User.query.filter_by(email=email).first()
-
-            if email_exists:
-                flash('Email is already in use.', category='error')
-            elif len(password1) < 6:
-                flash('Password is too short', category='error')
-            else:
-                password_hash = generate_password_hash(
-                    password=password1, method='sha256')
-
-                new_user = User(email=email,
-                                password=password_hash)
-                db.session.add(new_user)
-                db.session.commit()
-
-                login_user(new_user, remember=True)
-
-                flash('User Created!')
-                return redirect(url_for('view.accounts'))
-
-        return render_template("/auth/signup.html")
+        form = signup_form()
+        if form.validate_on_submit():
+            #login_user(form._user,remember=form.rememberme.data)
+            print("Here")
+            #return redirect(url_for('view.budget_new'))
+        return render_template("/auth/signup.html",form=form,program_name = app.config['program_name'])
+    
+    @auth.route('/resetpassword', methods=['GET'])
+    def reset_password():
+        form = signup_form()
+        if form.validate_on_submit():
+            #login_user(form._user,remember=form.rememberme.data)
+            print("Here")
+            #return redirect(url_for('view.budget_new'))
+        return render_template("/auth/Reset_Password.html",form=form,program_name = app.config['program_name'])
 
     @auth.route('/logout')
     @login_required

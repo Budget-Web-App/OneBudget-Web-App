@@ -26,7 +26,7 @@ def register_route(parent):
             )
             db.session.add(new_budget)
             db.session.commit()
-            return {"data": "Successfully created Budget"}
+            return {"data": new_budget.to_dict(show_all=True)}
         elif request.method == "GET":
             user_id = request.args.get("user_id")
 
@@ -34,13 +34,7 @@ def register_route(parent):
                 budgets = Budget.query.filter_by(budget_user_id=user_id).all()
             else:
                 budgets = Budget.query.all()
-                
+
             if not budgets:
                 return jsonify(data=[]), 404
             return jsonify(data=[budget.to_dict(show_all=True) for budget in budgets])
-
-    # @budgets_blueprint.route("/<string:user_id>",methods=["GET","PUT","DELETE"])
-    # def budget(user_id):
-    #    """
-     #   """
-    #    return {"data": {}}

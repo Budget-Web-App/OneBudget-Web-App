@@ -261,7 +261,9 @@ class User(Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(150), unique=True)
     password = db.Column(db.String(150))
-    date_created = db.Column(db.DateTime(timezone=True), default=func.now())
+    registered_on = db.Column(db.DateTime(timezone=True), default=func.now())
+    confirmed = db.Column(db.Boolean, nullable=False, default=False)
+    confirmed_on = db.Column(db.DateTime, nullable=True)
 
 
 class Budget(Model):
@@ -269,6 +271,7 @@ class Budget(Model):
     budget_id = db.Column(db.Integer, primary_key=True)
     budget_name = db.Column(db.String(150), nullable=False)
     budget_notes = db.Column(db.String(150), nullable=True)
+    access_date = db.Column(db.DateTime(timezone=True), default=func.now())
     #budget_currency_id = db.Column(db.Integer, db.ForeignKey())
     #budget_number_format_id = db.Column(db.Integer, db.ForeignKey)
     #budget_currency_placement_id = db.Column(db.Integer, db.ForeignKey)

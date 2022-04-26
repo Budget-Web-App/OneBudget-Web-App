@@ -1,5 +1,5 @@
 from sqlalchemy import text
-from flask import Blueprint, request, jsonify, url_for
+from flask import Blueprint, request, jsonify, url_for, redirect
 from app.mod_db.models.users import User
 from app.mod_db import db
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -15,6 +15,9 @@ def register_route(parent):
     def list_users():
         """
         """
+        next_url = request.args.get('next')
+        print(next_url)
+
         if request.method == "POST":
             email = request.form.get('email')
             password1 = request.form.get('password')
@@ -33,7 +36,11 @@ def register_route(parent):
                                 password=password_hash)
                 db.session.add(new_user)
                 db.session.commit()
+                print(next_url)
+                if next_url:
+                    return redirect(next_url)
                 return {"data": "Successfully created new User"}
+
         elif request.method == "GET":
             # list(request.args.keys())
 
