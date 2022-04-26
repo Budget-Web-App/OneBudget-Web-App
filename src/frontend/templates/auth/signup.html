@@ -4,17 +4,23 @@
 <div id="signup-form-container">
     <h2>Sign Up</h2>
     <form id="signup-form" method="post" accept-charset="UTF-8" novalidate="novalidate">
+        {{ form.csrf_token }}
         <p class="js-form-email">
-            <input type="text" name="email" placeholder="Email">
+            {{form.email(autofocus="autofocus", spellcheck="false", placeholder="Email", type="email", id="request_data_email", class="required", autocomplete="off")}}
+            {% for error in form.email.errors %}
+                <label for="request_data_email" class="error">{{error}}</label>
+            {% endfor %}
         </p>
 
         <p class="js-form-password">
-            <input type="password" name="password" placeholder="Password">
+            {{form.password(placeholder="Password", autocapitalize="none", autocomplete="off", type="password", id="request_data_password", class="required")}}
+            {% for error in form.password.errors %}
+                <label for="request_data_password" class="error">{{error}}</label>
+            {% endfor %}
         </p>
 
         <p>
-            <input name="signup" value="Sign Up" type="submit" id="signup" data-disable-with="Logging In..."
-                class="button button-primary">
+            {{form.sign_up(type="submit", id="signup", class="button button-primary")}}
         </p>
 
         <a href="{{url_for('signin')}}">Sign In</a>
