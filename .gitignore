@@ -133,3 +133,5 @@ app/database.db
 
 # visual studio code workspace
 /workspace.code-workspace
+
+Scripts/
