@@ -130,3 +130,6 @@ dmypy.json
 
 # database file
 app/database.db
+
+# visual studio code workspace
+/workspace.code-workspace
