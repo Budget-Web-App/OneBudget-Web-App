@@ -1,0 +1,11 @@
+.budget-nav-main ul li {
+    margin: 7.5px 0;
+}
+
+.budget-nav-main ul li:first-of-type{
+    margin-top: 0;
+}
+
+.budget-nav-main ul li:last-of-type{
+    margin-bottom: 0;
+}
